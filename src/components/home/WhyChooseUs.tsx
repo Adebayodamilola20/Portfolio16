@@ -92,7 +92,13 @@ export function WhyChooseUs() {
   );
 
   return (
-    <section className="py-16 md:py-20 bg-[#050505] border-t border-white/5">
+    <motion.section 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="py-16 md:py-20 bg-[#050505] border-t border-white/5"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-12">
@@ -116,6 +122,6 @@ export function WhyChooseUs() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,9 +1,16 @@
 'use client';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export function WorkWithUs() {
   return (
-    <section className="relative py-32 md:py-48 bg-[#EAEBE6] overflow-hidden text-black border-b border-black/10">
+    <motion.section 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="relative py-32 md:py-48 bg-[#EAEBE6] overflow-hidden text-black border-b border-black/10"
+    >
       {/* Texture Grid Pattern */}
       <div 
         className="absolute inset-0 opacity-[0.5] pointer-events-none mix-blend-multiply" 
@@ -42,6 +49,6 @@ export function WorkWithUs() {
           </svg>
         </Link>
       </div>
-    </section>
+    </motion.section>
   );
 }

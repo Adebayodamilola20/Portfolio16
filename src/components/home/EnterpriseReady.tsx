@@ -51,7 +51,13 @@ export function EnterpriseReady() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         {/* Header Block */}
-        <div className="mb-24 md:mb-32">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="mb-24 md:mb-32"
+        >
           <span className="text-[#3b82f6] font-mono text-[10px] tracking-[0.2em] font-bold uppercase mb-8 block">
             Enterprise-Ready
           </span>
@@ -62,12 +68,19 @@ export function EnterpriseReady() {
             <Sparkle className="w-10 h-10 md:w-14 md:h-14 stroke-1 opacity-60" />
             <span>Secure.</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* Vertical List */}
         <div className="flex flex-col mb-32">
           {features.map((item, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row gap-6 md:gap-16 py-12 border-b border-black/10 last:border-b-0 group">
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="flex flex-col md:flex-row gap-6 md:gap-16 py-12 border-b border-black/10 last:border-b-0 group"
+            >
               {/* Icon Container */}
               <div className="w-14 h-14 md:w-20 md:h-16 flex items-center justify-center bg-blue-500/5 border border-blue-500/20 rounded-xl flex-shrink-0 group-hover:bg-blue-500/10 transition-colors">
                 <item.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-500 stroke-[1.5]" />
@@ -86,7 +99,7 @@ export function EnterpriseReady() {
                   {item.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

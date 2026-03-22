@@ -131,13 +131,19 @@ export function ServicesTabs() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505] pointer-events-none" />
 
       {/* Hero Header for Services */}
-      <div className="pt-32 pb-20 px-10 md:px-20 relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="pt-32 pb-20 px-10 md:px-20 relative z-10"
+      >
         <span className="text-gray-600 font-mono text-[10px] tracking-[0.4em] uppercase mb-8 block font-bold">Use Cases</span>
         <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium text-white tracking-tight leading-[1.05]">
           What I Build <br />
           For You
         </h2>
-      </div>
+      </motion.div>
 
       {/* Tabs Header - Edge to Edge Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-6 border-t border-l border-white/5 min-h-[80px] bg-[#050505] relative z-10 w-full">
