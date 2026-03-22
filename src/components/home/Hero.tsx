@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import Link from 'next/link';
 
 const heroTechIcons = [
@@ -35,7 +35,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl md:text-8xl lg:text-9xl font-medium text-white tracking-tight mb-8 leading-[0.95]"
+          className="text-4xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight mb-6 leading-[1.1]"
         >
           Custom Software.<br />
           <span className="text-[#3b82f6]">Built Without Limits.</span>
@@ -45,21 +45,27 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-lg md:text-2xl text-gray-500 mb-12 max-w-3xl leading-snug font-medium"
+          className="text-sm md:text-base text-gray-400 mb-10 max-w-xl leading-relaxed font-medium mx-auto"
         >
-          We design and develop powerful websites, apps, and platforms<br className="hidden md:block" /> for businesses that need more than off-the-shelf solutions.
+          I design and develop powerful websites, apps, and platforms<br className="hidden md:block" /> for businesses that need more than off-the-shelf solutions.
         </motion.p>
 
         <motion.div
            initial={{ opacity: 0 }}
            animate={{ opacity: 1 }}
            transition={{ duration: 1, delay: 0.4 }}
+           className="flex flex-col sm:flex-row items-center gap-4"
         >
           <Link href="/contact">
-            <button className="px-10 py-5 bg-[#F5F6EE] text-black rounded-full font-bold tracking-widest uppercase text-[10px] transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
+            <button className="w-full sm:w-auto px-10 py-5 bg-[#F5F6EE] text-black rounded-full font-bold tracking-widest uppercase text-[10px] transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
               Start Your Project <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
+          <a href="#" download>
+            <button className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 text-white rounded-full font-bold tracking-widest uppercase text-[10px] transition-all hover:bg-white/5 active:scale-95 flex items-center justify-center gap-3">
+              Download CV <Download className="w-4 h-4" />
+            </button>
+          </a>
         </motion.div>
       </div>
 
