@@ -26,8 +26,19 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isMobileMenuOpen]);
+
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-black/80 backdrop-blur-xl py-4' : 'bg-transparent py-8'}`}>
+    <>
+      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-black/80 backdrop-blur-xl py-4' : 'bg-transparent py-8'}`}>
       <div className="w-full px-6 md:px-10 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-4">
           <div className="w-8 h-8 rounded bg-[#111] flex items-center justify-center border border-white/10 relative overflow-hidden">
@@ -100,15 +111,17 @@ export function Navigation() {
           <Menu className="w-6 h-6" />
         </button>
       </div>
+    </header>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+    <AnimatePresence>
+      {isMobileMenuOpen && (
+        <motion.div
+            initial={{ opacity: 0, scale: 0.98, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-[100] bg-[#090b10] flex flex-col pt-6 px-6 pb-10 overflow-y-auto"
-          >
+        >
             {/* Mobile Header */}
             <div className="flex items-center justify-between mb-12">
               <Link href="/" className="flex items-center gap-4" onClick={() => setIsMobileMenuOpen(false)}>
@@ -153,6 +166,6 @@ export function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
