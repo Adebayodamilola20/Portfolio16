@@ -45,10 +45,11 @@ export function TechStackMarquee() {
         <div className="absolute left-0 top-0 w-24 md:w-56 h-full bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 w-24 md:w-56 h-full bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
         
+        {/* Row 1: Top Row - Left to Right on Mobile, All screens */}
         <motion.div 
-          animate={{ x: ["0%", "-50%"] }} 
+          animate={{ x: ["-50%", "0%"] }} 
           transition={{ ease: "linear", duration: 40, repeat: Infinity }} 
-          className="flex whitespace-nowrap gap-5 w-max"
+          className="flex whitespace-nowrap gap-5 w-max -ml-[120px]"
         >
           {[...row1, ...row1, ...row1, ...row1, ...row1].map((item, index) => (
             <div key={index} className="flex items-center justify-center w-[4.5rem] h-[4.5rem] sm:w-[5.5rem] sm:h-[5.5rem] bg-[#090b10] border border-white/5 rounded-[1.25rem] flex-shrink-0 hover:bg-[#11141d] hover:border-white/10 transition-colors">
@@ -57,10 +58,11 @@ export function TechStackMarquee() {
           ))}
         </motion.div>
 
+        {/* Row 2: Lower Row - Right to Left on Mobile, Hidden on Laptop */}
         <motion.div 
-          animate={{ x: ["-50%", "0%"] }} 
+          animate={{ x: ["0%", "-50%"] }} 
           transition={{ ease: "linear", duration: 40, repeat: Infinity }} 
-          className="flex whitespace-nowrap gap-5 w-max -ml-[120px]"
+          className="flex md:hidden whitespace-nowrap gap-5 w-max"
         >
           {[...row2, ...row2, ...row2, ...row2, ...row2].map((item, index) => (
             <div key={index} className="flex items-center justify-center w-[4.5rem] h-[4.5rem] sm:w-[5.5rem] sm:h-[5.5rem] bg-[#090b10] border border-white/5 rounded-[1.25rem] flex-shrink-0 hover:bg-[#11141d] hover:border-white/10 transition-colors">
