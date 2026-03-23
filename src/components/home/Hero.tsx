@@ -31,7 +31,7 @@ const heroTechIcons = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[110vh] md:h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505] pt-32 md:pt-0">
+    <section className="relative min-h-[115vh] md:h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505] pb-24 md:pb-0">
       {/* Central Blue Sphere Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] blur-3xl" />
