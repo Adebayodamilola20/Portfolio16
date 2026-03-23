@@ -15,15 +15,23 @@ const heroTechIcons = [
   { name: 'Swift', url: 'https://cdn.simpleicons.org/swift/f05138', shadow: 'rgba(240,81,56,0.15)' },
   { name: 'Kotlin', url: 'https://cdn.simpleicons.org/kotlin/a855f7', shadow: 'rgba(168,85,247,0.15)' },
   { name: 'Python', url: 'https://cdn.simpleicons.org/python/eab308', shadow: 'rgba(234,179,8,0.15)' },
+  { name: 'JavaScript', url: 'https://cdn.simpleicons.org/javascript/f7df1e', shadow: 'rgba(247,223,30,0.15)' },
   { name: 'Git', url: 'https://cdn.simpleicons.org/git/ef4444', shadow: 'rgba(239,68,68,0.15)' },
   { name: 'GitHub', url: 'https://cdn.simpleicons.org/github/ffffff', shadow: 'rgba(255,255,255,0.1)' },
+  { name: 'GitLab', url: 'https://cdn.simpleicons.org/gitlab/e24329', shadow: 'rgba(226,67,41,0.15)' },
+  { name: 'Bitbucket', url: 'https://cdn.simpleicons.org/bitbucket/0052cc', shadow: 'rgba(0,82,204,0.15)' },
+  { name: 'Docker', url: 'https://cdn.simpleicons.org/docker/2496ed', shadow: 'rgba(36,150,237,0.15)' },
+  { name: 'Vercel', url: 'https://cdn.simpleicons.org/vercel/ffffff', shadow: 'rgba(255,255,255,0.1)' },
+  { name: 'Render', url: 'https://cdn.simpleicons.org/render/46e3b7', shadow: 'rgba(70,227,183,0.15)' },
+  { name: 'Ngrok', url: 'https://cdn.simpleicons.org/ngrok/1f1e37', shadow: 'rgba(31,30,55,0.2)' },
+  { name: 'Claude', url: 'https://cdn.simpleicons.org/anthropic/ffffff', shadow: 'rgba(255,255,255,0.1)' },
   { name: 'Rust', url: 'https://cdn.simpleicons.org/rust/ffffff', shadow: 'rgba(255,255,255,0.1)' },
   { name: 'DotNet', url: 'https://cdn.simpleicons.org/dotnet/8b5cf6', shadow: 'rgba(139,92,246,0.15)' }
 ];
 
 export function Hero() {
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505]">
+    <section className="relative min-h-[110vh] md:h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505] pt-32 md:pt-0">
       {/* Central Blue Sphere Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] blur-3xl" />
