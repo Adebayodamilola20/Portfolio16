@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface Project {
   id: string;
@@ -21,7 +22,6 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
 
   const images = project.images || (project.image ? [project.image] : []);
   const hasMultipleImages = images.length > 1;
@@ -36,7 +36,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     return () => clearInterval(interval);
   }, [hasMultipleImages, images.length]);
 
-  return (
+  const cardContent = (
     <motion.div
       layout
       initial={{ opacity: 0, scale: 0.9 }}
@@ -45,10 +45,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       transition={{ duration: 0.4, type: "spring", bounce: 0.15 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsSelected(!isSelected)}
       className="bg-[#0f111a] border border-white/5 rounded-2xl md:rounded-3xl overflow-hidden group flex flex-col shadow-lg cursor-pointer relative"
     >
-      {/* Project Card Container */}
+      {/* Project Card Container - Normal 4:3 Aspect Ratio */}
       <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden shrink-0 group">
         <AnimatePresence>
           <motion.img
@@ -100,4 +99,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
     </motion.div>
   );
+
+  if (project.link && project.link !== '#') {
+    return (
+      <Link href={project.link}>
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 }

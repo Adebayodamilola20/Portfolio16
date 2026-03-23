@@ -12,6 +12,9 @@ import image3 from '@/assets/image3.png';
 import img4 from '@/assets/iimg4.png';
 import img5 from '@/assets/img5.png';
 import img6 from '@/assets/img6.png';
+import gig3 from '@/assets/gig3.png';
+import gig4 from '@/assets/gig4.png';
+import gig5 from '@/assets/gig5.png';
 
 const categories = ["ALL", "SAAS", "WEB APPS", "MOBILE APPS", "AI SYSTEMS", "AUTOMATIONS", "WEBSITES"];
 
@@ -42,10 +45,10 @@ const projects = [
       image3.src
     ],
     description: 'Women Impacting Nigeria (WIN)',
-    link: '#'
+    link: '/portfolio/win'
   },
   {
-    id: 'Proton Security',
+    id: 'proton-security',
     title: 'Proton Security',
     category: 'WEBSITES',
     images: [
@@ -54,15 +57,19 @@ const projects = [
       img6.src
     ],
     description: 'Protonn Security is a security company ',
-    link: '#'
+    link: '/portfolio/proton-security'
   },
   {
-    id: 'novapay',
-    title: 'NovaPay',
+    id: 'reloexpress',
+    title: 'ReloExpress',
     category: 'WEB APPS',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop',
-    description: 'Secure digital payment solution for modern e-commerce businesses.',
-    link: '#'
+    images: [
+      gig3.src,
+      gig4.src,
+      gig5.src
+    ],
+    description: 'ReloExpress is a logistics and relocation platform designed to simplify the moving process.',
+    link: '/portfolio/reloexpress'
   },
   {
     id: 'healthmate',
