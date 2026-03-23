@@ -32,14 +32,14 @@ const heroTechIcons = [
 
 export function Hero() {
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505]">
+    <section className="relative min-h-[130vh] md:min-h-screen md:max-h-screen md:h-screen flex flex-col items-center justify-start md:justify-center text-center px-10 md:px-20 overflow-hidden bg-[#050505] pt-40 md:pt-0">
       {/* Central Blue Sphere Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] blur-3xl" />
         <div className="absolute inset-10 md:inset-20 border border-blue-500/5 rounded-full" />
       </div>
 
-      <div className="w-full z-10 flex flex-col items-center mt-12 md:mt-20">
+      <div className="w-full z-10 flex flex-col items-center">
         <motion.h1 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
