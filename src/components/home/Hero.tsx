@@ -70,14 +70,32 @@ export function Hero() {
       </div>
 
       {/* Scrolling Tech Stack Bar (Replacing static bar) */}
-      <div className="absolute bottom-0 left-0 w-full h-24 overflow-hidden border-t border-white/5 bg-black/40 backdrop-blur-md flex items-center">
+      <div className="absolute bottom-0 left-0 w-full h-auto py-4 overflow-hidden border-t border-white/5 bg-black/40 backdrop-blur-md flex flex-col gap-4 items-center">
         <div className="absolute left-0 top-0 w-24 md:w-56 h-full bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 w-24 md:w-56 h-full bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
         
+        {/* Row 1: Left to Right on Mobile, All screens */}
         <motion.div 
           animate={{ x: ["-50%", "0%"] }} 
           transition={{ ease: "linear", duration: 45, repeat: Infinity }} 
           className="flex whitespace-nowrap gap-5 w-max px-5"
+        >
+          {[...heroTechIcons, ...heroTechIcons, ...heroTechIcons].map((item, index) => (
+            <div 
+              key={index}
+              style={{ boxShadow: `0 0 12px ${item.shadow}` }} 
+              className="flex items-center justify-center w-[4.5rem] h-[4.5rem] bg-[#090b10] border border-white/5 rounded-[1.25rem] flex-shrink-0 hover:bg-[#11141d] hover:border-white/20 transition-all duration-300 hover:scale-105 group relative"
+            >
+              <img src={item.url} alt={item.name} className="w-9 h-9 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Row 2: Right to Left on Mobile, Hidden on Laptop */}
+        <motion.div 
+          animate={{ x: ["0%", "-50%"] }} 
+          transition={{ ease: "linear", duration: 45, repeat: Infinity }} 
+          className="flex md:hidden whitespace-nowrap gap-5 w-max px-5"
         >
           {[...heroTechIcons, ...heroTechIcons, ...heroTechIcons].map((item, index) => (
             <div 

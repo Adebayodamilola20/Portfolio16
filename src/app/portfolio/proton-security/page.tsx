@@ -3,6 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
 
 // Reuse images from assets
 import img4 from '@/assets/iimg4.png';
@@ -73,7 +74,6 @@ export default function ProtonSecurityCaseStudyPage() {
         </div>
       </section>
 
-      {/* Main Image Section */}
       <section className="px-6 mb-32">
         <div className="max-w-[85rem] mx-auto">
           <motion.div
@@ -81,9 +81,9 @@ export default function ProtonSecurityCaseStudyPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl"
+            className="relative h-[300px] md:h-[600px] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl"
           >
-            <img src={img4.src} alt="Proton Security Platform" className="w-full h-auto" />
+            <Image src={img4} alt="Proton Security Platform" fill className="object-cover" priority />
           </motion.div>
         </div>
       </section>
@@ -120,14 +120,13 @@ export default function ProtonSecurityCaseStudyPage() {
         </div>
       </section>
 
-      {/* Grid Mockup Section */}
       <section className="px-6 py-32">
         <div className="max-w-[75rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="rounded-[3rem] overflow-hidden border border-white/5">
-            <img src={img5.src} alt="Proton Security Mobile" className="w-full h-auto object-cover" />
+          <div className="relative h-[250px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/5">
+            <Image src={img5} alt="Proton Security Mobile" fill className="object-cover" />
           </div>
-          <div className="rounded-[3rem] overflow-hidden border border-white/5">
-            <img src={img6.src} alt="Proton Security Detail" className="w-full h-auto object-cover" />
+          <div className="relative h-[250px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/5">
+            <Image src={img6} alt="Proton Security Detail" fill className="object-cover" />
           </div>
         </div>
       </section>

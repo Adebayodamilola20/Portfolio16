@@ -3,6 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
 
 // Reuse images from assets
 import gig3 from '@/assets/gig3.png';
@@ -73,7 +74,6 @@ export default function ReloExpressCaseStudyPage() {
         </div>
       </section>
 
-      {/* Main Image Section */}
       <section className="px-6 mb-32">
         <div className="max-w-[85rem] mx-auto">
           <motion.div
@@ -81,9 +81,9 @@ export default function ReloExpressCaseStudyPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl"
+            className="relative h-[300px] md:h-[600px] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl"
           >
-            <img src={gig3.src} alt="ReloExpress Platform" className="w-full h-auto" />
+            <Image src={gig3} alt="ReloExpress Platform" fill className="object-cover" priority />
           </motion.div>
         </div>
       </section>
@@ -120,14 +120,13 @@ export default function ReloExpressCaseStudyPage() {
         </div>
       </section>
 
-      {/* Grid Mockup Section */}
       <section className="px-6 py-32">
         <div className="max-w-[75rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="rounded-[3rem] overflow-hidden border border-white/5">
-            <img src={gig4.src} alt="ReloExpress App View" className="w-full h-auto object-cover" />
+          <div className="relative h-[250px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/5">
+            <Image src={gig4} alt="ReloExpress App View" fill className="object-cover" />
           </div>
-          <div className="rounded-[3rem] overflow-hidden border border-white/5">
-            <img src={gig5.src} alt="ReloExpress Dashboard" className="w-full h-auto object-cover" />
+          <div className="relative h-[250px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/5">
+            <Image src={gig5} alt="ReloExpress Dashboard" fill className="object-cover" />
           </div>
         </div>
       </section>

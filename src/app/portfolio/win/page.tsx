@@ -3,7 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 // Reuse images from assets
 import image1 from '@/assets/image1.png';
@@ -74,7 +74,6 @@ export default function WinerCaseStudyPage() {
         </div>
       </section>
 
-      {/* Main Image Section */}
       <section className="px-6 mb-32">
         <div className="max-w-[85rem] mx-auto">
           <motion.div
@@ -82,9 +81,9 @@ export default function WinerCaseStudyPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl"
+            className="relative h-[300px] md:h-[600px] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl"
           >
-            <img src={image1.src} alt="WINER Platform" className="w-full h-auto" />
+            <Image src={image1} alt="WINER Platform" fill className="object-cover" priority />
           </motion.div>
         </div>
       </section>
@@ -121,14 +120,13 @@ export default function WinerCaseStudyPage() {
         </div>
       </section>
 
-      {/* Grid Mockup Section */}
       <section className="px-6 py-32">
         <div className="max-w-[75rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="rounded-[3rem] overflow-hidden border border-white/5">
-            <img src={image3.src} alt="WINER About" className="w-full h-auto object-cover" />
+          <div className="relative h-[250px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/5">
+            <Image src={image3} alt="WINER About" fill className="object-cover" />
           </div>
-          <div className="rounded-[3rem] overflow-hidden border border-white/5">
-            <img src={image2.src} alt="WINER Updates" className="w-full h-auto object-cover" />
+          <div className="relative h-[250px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/5">
+            <Image src={image2} alt="WINER Updates" fill className="object-cover" />
           </div>
         </div>
       </section>

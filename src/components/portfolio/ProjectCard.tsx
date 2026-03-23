@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
 
 interface Project {
   id: string;
   title: string;
   category: string;
-  image?: string;
-  images?: string[];
+  image?: string | StaticImageData;
+  images?: (string | StaticImageData)[];
   description?: string;
   link?: string;
 }
@@ -49,17 +50,23 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* Project Card Container - Normal 4:3 Aspect Ratio */}
       <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden shrink-0 group">
-        <AnimatePresence>
-          <motion.img
-            key={images[currentImageIndex]}
-            src={images[currentImageIndex]}
-            alt={project.title}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className={`absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out`}
-          />
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src={images[currentImageIndex]}
+              alt={project.title}
+              fill
+              className={`object-cover group-hover:scale-105 transition-transform duration-700 ease-out`}
+              priority={currentImageIndex === 0}
+            />
+          </motion.div>
         </AnimatePresence>
 
         {/* Bottom Overlay Content (Show only on hover) */}

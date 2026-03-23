@@ -15,10 +15,21 @@ import img6 from '@/assets/img6.png';
 import gig3 from '@/assets/gig3.png';
 import gig4 from '@/assets/gig4.png';
 import gig5 from '@/assets/gig5.png';
+import { StaticImageData } from 'next/image';
+
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  image?: string | StaticImageData;
+  images?: (string | StaticImageData)[];
+  description?: string;
+  link?: string;
+}
 
 const categories = ["ALL", "SAAS", "WEB APPS", "MOBILE APPS", "AI SYSTEMS", "AUTOMATIONS", "WEBSITES"];
 
-const projects = [
+const projects: Project[] = [
   {
     id: 'genesai',
     title: 'Genesai',
@@ -40,9 +51,9 @@ const projects = [
     title: 'WINER',
     category: 'WEB APPS',
     images: [
-      image1.src,
-      image2.src,
-      image3.src
+      image1,
+      image2,
+      image3
     ],
     description: 'Women Impacting Nigeria (WIN)',
     link: '/portfolio/win'
@@ -52,9 +63,9 @@ const projects = [
     title: 'Proton Security',
     category: 'WEBSITES',
     images: [
-      img4.src,
-      img5.src,
-      img6.src
+      img4,
+      img5,
+      img6
     ],
     description: 'Protonn Security is a security company ',
     link: '/portfolio/proton-security'
@@ -64,9 +75,9 @@ const projects = [
     title: 'ReloExpress',
     category: 'WEB APPS',
     images: [
-      gig3.src,
-      gig4.src,
-      gig5.src
+      gig3,
+      gig4,
+      gig5
     ],
     description: 'ReloExpress is a logistics and relocation platform designed to simplify the moving process.',
     link: '/portfolio/reloexpress'
@@ -289,12 +300,13 @@ export default function PortfolioPage() {
           <div className="absolute left-0 top-0 w-24 md:w-56 h-full bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 w-24 md:w-56 h-full bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-10 pointer-events-none" />
 
+          {/* Row 1: Left to Right on Mobile, All screens */}
           <motion.div
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{ x: ["-50%", "0%"] }}
             transition={{ ease: "linear", duration: 50, repeat: Infinity }}
             className="flex whitespace-nowrap gap-4 w-max"
           >
-            {[...techStack.slice(0, 9), ...techStack.slice(0, 9), ...techStack.slice(0, 9), ...techStack.slice(0, 9)].map((item, index) => (
+            {[...techStack.slice(0, 9), ...techStack.slice(0, 9), ...techStack.slice(0, 9)].map((item, index) => (
               <div key={index} className="flex items-center gap-3 px-6 py-4 bg-[#0c0e15] border border-white/5 rounded-2xl flex-shrink-0 hover:bg-[#11141d] hover:border-white/10 transition-colors shadow-sm cursor-pointer">
                 <img src={item.url} alt={item.name} className="w-6 h-6 object-contain" />
                 <span className="text-gray-300 font-medium text-[14px] tracking-wide">{item.name}</span>
@@ -302,12 +314,13 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
+          {/* Row 2: Right to Left on Mobile, Hidden on Laptop */}
           <motion.div
-            animate={{ x: ["-50%", "0%"] }}
+            animate={{ x: ["0%", "-50%"] }}
             transition={{ ease: "linear", duration: 50, repeat: Infinity }}
-            className="flex whitespace-nowrap gap-4 w-max -ml-[120px]"
+            className="flex md:hidden whitespace-nowrap gap-4 w-max -ml-[120px]"
           >
-            {[...techStack.slice(9), ...techStack.slice(9), ...techStack.slice(9), ...techStack.slice(9)].map((item, index) => (
+            {[...techStack.slice(9), ...techStack.slice(9), ...techStack.slice(9)].map((item, index) => (
               <div key={index} className="flex items-center gap-3 px-6 py-4 bg-[#0c0e15] border border-white/5 rounded-2xl flex-shrink-0 hover:bg-[#11141d] hover:border-white/10 transition-colors shadow-sm cursor-pointer">
                 <img src={item.url} alt={item.name} className="w-6 h-6 object-contain" />
                 <span className="text-gray-300 font-medium text-[14px] tracking-wide">{item.name}</span>
