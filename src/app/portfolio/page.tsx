@@ -5,45 +5,80 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ProjectCard from '@/components/portfolio/ProjectCard';
+import image1 from '@/assets/image1.png';
+import image2 from '@/assets/image2.png';
+import image3 from '@/assets/image3.png';
+import img4 from '@/assets/iimg4.png';
+import img5 from '@/assets/img5.png';
+import img6 from '@/assets/img6.png';
 
 const categories = ["ALL", "SAAS", "WEB APPS", "MOBILE APPS", "AI SYSTEMS", "AUTOMATIONS", "WEBSITES"];
 
 const projects = [
-  { 
-    id: 'genesai', 
-    title: 'Genesai', 
-    category: 'SAAS', 
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop'
+  {
+    id: 'genesai',
+    title: 'Genesai',
+    category: 'SAAS',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop',
+    description: 'Production-ready SaaS platform with multi-API system, agency capabilities, and real-time tracking.',
+    link: '#'
   },
-  { 
-    id: 'adapt-lab', 
-    title: 'The Adapt Lab', 
-    category: 'AI SYSTEMS', 
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop'
+  {
+    id: 'adapt-lab',
+    title: 'The Adapt Lab',
+    category: 'AI SYSTEMS',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop',
+    description: 'Advanced AI system integration for research laboratories and data analysis.',
+    link: '#'
   },
-  { 
-    id: 'renovafix', 
-    title: 'Renovafix', 
-    category: 'WEBSITES', 
-    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1600&auto=format&fit=crop'
+  {
+    id: 'win',
+    title: 'WINER',
+    category: 'WEB APPS',
+    images: [
+      image1.src,
+      image2.src,
+      image3.src
+    ],
+    description: 'Women Impacting Nigeria (WIN)',
+    link: '#'
   },
-  { 
-    id: 'novapay', 
-    title: 'NovaPay', 
-    category: 'WEB APPS', 
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop'
+  {
+    id: 'Proton Security',
+    title: 'Proton Security',
+    category: 'WEBSITES',
+    images: [
+      img4.src,
+      img5.src,
+      img6.src
+    ],
+    description: 'Protonn Security is a security company ',
+    link: '#'
   },
-  { 
-    id: 'healthmate', 
-    title: 'HealthMate', 
-    category: 'MOBILE APPS', 
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1600&auto=format&fit=crop'
+  {
+    id: 'novapay',
+    title: 'NovaPay',
+    category: 'WEB APPS',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop',
+    description: 'Secure digital payment solution for modern e-commerce businesses.',
+    link: '#'
   },
-  { 
-    id: 'automax', 
-    title: 'AutoMax Workflows', 
-    category: 'AUTOMATIONS', 
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop'
+  {
+    id: 'healthmate',
+    title: 'HealthMate',
+    category: 'MOBILE APPS',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1600&auto=format&fit=crop',
+    description: 'Intuitive mobile application for personal health tracking and wellness management.',
+    link: '#'
+  },
+  {
+    id: 'selfie-spot',
+    title: 'The Selfie Spot',
+    category: 'WEBSITES',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop',
+    description: 'A modern photography studio and event space platform.',
+    link: '#'
   },
 ];
 
@@ -86,13 +121,13 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("ALL");
 
-  const filteredProjects = activeCategory === "ALL" 
-    ? projects 
+  const filteredProjects = activeCategory === "ALL"
+    ? projects
     : projects.filter(p => p.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-blue-500/30 font-sans">
-      
+
       {/* Header Section */}
       <section className="pt-48 pb-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -113,21 +148,20 @@ export default function PortfolioPage() {
             </p>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }} 
-            animate={{ opacity: 1, scale: 1 }} 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-wrap justify-center gap-3 md:gap-4 mb-20"
           >
             {categories.map(cat => (
-              <button 
-                key={cat} 
-                onClick={() => setActiveCategory(cat)} 
-                className={`px-6 py-2.5 rounded-full text-[10px] sm:text-[11px] uppercase tracking-widest font-bold transition-all duration-300 border ${
-                  activeCategory === cat 
-                    ? 'bg-white text-black border-white' 
-                    : 'bg-transparent text-[#9CA3AF] border-white/10 hover:border-white/30 hover:text-white'
-                }`}
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2.5 rounded-full text-[10px] sm:text-[11px] uppercase tracking-widest font-bold transition-all duration-300 border ${activeCategory === cat
+                  ? 'bg-white text-black border-white'
+                  : 'bg-transparent text-[#9CA3AF] border-white/10 hover:border-white/30 hover:text-white'
+                  }`}
               >
                 {cat}
               </button>
@@ -140,32 +174,11 @@ export default function PortfolioPage() {
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, i) => (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, type: "spring", bounce: 0.15 }}
-                  key={project.id}
-                  className="bg-[#0f111a] border border-white/5 rounded-2xl md:rounded-3xl overflow-hidden group flex flex-col shadow-lg"
-                >
-                  <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden shrink-0">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
-                    />
-                    <div className="absolute inset-0 border-b border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                  <div className="p-6 md:p-8 flex-1 flex flex-col justify-end bg-gradient-to-b from-transparent to-[#0a0c10]/50">
-                    <span className="text-[#9CA3AF] text-[10px] uppercase font-bold tracking-widest block mb-2">{project.category}</span>
-                    <h3 className="text-white text-xl md:text-2xl font-medium tracking-wide group-hover:text-[#60A5FA] transition-colors">{project.title}</h3>
-                  </div>
-                </motion.div>
+                <ProjectCard key={project.id} project={project} />
               ))}
             </AnimatePresence>
           </motion.div>
-          
+
           {filteredProjects.length === 0 && (
             <div className="text-center py-20 text-gray-500">
               No projects found for this category.
@@ -179,7 +192,7 @@ export default function PortfolioPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]" />
         </div>
-        
+
         <FadeIn className="max-w-[75rem] mx-auto relative z-10">
           <span className="text-gray-500 font-mono text-[10px] tracking-[0.2em] uppercase mb-6 block font-bold">
             TECHNICAL CAPABILITIES
@@ -268,10 +281,10 @@ export default function PortfolioPage() {
         <div className="relative flex flex-col gap-6 overflow-hidden group">
           <div className="absolute left-0 top-0 w-24 md:w-56 h-full bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 w-24 md:w-56 h-full bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-10 pointer-events-none" />
-          
-          <motion.div 
-            animate={{ x: ["0%", "-50%"] }} 
-            transition={{ ease: "linear", duration: 50, repeat: Infinity }} 
+
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ ease: "linear", duration: 50, repeat: Infinity }}
             className="flex whitespace-nowrap gap-4 w-max"
           >
             {[...techStack.slice(0, 9), ...techStack.slice(0, 9), ...techStack.slice(0, 9), ...techStack.slice(0, 9)].map((item, index) => (
@@ -282,9 +295,9 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          <motion.div 
-            animate={{ x: ["-50%", "0%"] }} 
-            transition={{ ease: "linear", duration: 50, repeat: Infinity }} 
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ ease: "linear", duration: 50, repeat: Infinity }}
             className="flex whitespace-nowrap gap-4 w-max -ml-[120px]"
           >
             {[...techStack.slice(9), ...techStack.slice(9), ...techStack.slice(9), ...techStack.slice(9)].map((item, index) => (
@@ -302,7 +315,7 @@ export default function PortfolioPage() {
         <div className="absolute inset-0 z-0 opacity-30">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:24px_24px]" />
         </div>
-        
+
         <FadeIn className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
           <h2 className="text-4xl md:text-[3.5rem] font-medium tracking-tight mb-8 text-white">
             Ready to start your project?
