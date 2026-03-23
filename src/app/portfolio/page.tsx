@@ -314,11 +314,11 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          {/* Row 2: Right to Left on Mobile, Hidden on Laptop */}
+          {/* Row 2: Right to Left on All screens */}
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{ ease: "linear", duration: 50, repeat: Infinity }}
-            className="flex md:hidden whitespace-nowrap gap-4 w-max -ml-[120px]"
+            className="flex whitespace-nowrap gap-4 w-max -ml-[120px]"
           >
             {[...techStack.slice(9), ...techStack.slice(9), ...techStack.slice(9)].map((item, index) => (
               <div key={index} className="flex items-center gap-3 px-6 py-4 bg-[#0c0e15] border border-white/5 rounded-2xl flex-shrink-0 hover:bg-[#11141d] hover:border-white/10 transition-colors shadow-sm cursor-pointer">

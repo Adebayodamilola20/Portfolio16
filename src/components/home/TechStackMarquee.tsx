@@ -58,11 +58,11 @@ export function TechStackMarquee() {
           ))}
         </motion.div>
 
-        {/* Row 2: Lower Row - Right to Left on Mobile, Hidden on Laptop */}
+        {/* Row 2: Lower Row - Right to Left on All screens */}
         <motion.div 
           animate={{ x: ["0%", "-50%"] }} 
           transition={{ ease: "linear", duration: 40, repeat: Infinity }} 
-          className="flex md:hidden whitespace-nowrap gap-5 w-max"
+          className="flex whitespace-nowrap gap-5 w-max"
         >
           {[...row2, ...row2, ...row2, ...row2, ...row2].map((item, index) => (
             <div key={index} className="flex items-center justify-center w-[4.5rem] h-[4.5rem] sm:w-[5.5rem] sm:h-[5.5rem] bg-[#090b10] border border-white/5 rounded-[1.25rem] flex-shrink-0 hover:bg-[#11141d] hover:border-white/10 transition-colors">

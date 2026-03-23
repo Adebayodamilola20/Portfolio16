@@ -11,6 +11,7 @@ const heroTechIcons = [
   { name: 'Supabase', url: 'https://cdn.simpleicons.org/supabase/10b981', shadow: 'rgba(16,185,129,0.15)' },
   { name: 'Go', url: 'https://cdn.simpleicons.org/go/06b6d4', shadow: 'rgba(6,182,212,0.15)' },
   { name: 'React', url: 'https://cdn.simpleicons.org/react/06b6d4', shadow: 'rgba(6,182,212,0.15)' },
+  { name: 'Figma', url: 'https://cdn.simpleicons.org/figma/f24e1e', shadow: 'rgba(242,78,30,0.15)' },
   { name: 'Tailwind CSS', url: 'https://cdn.simpleicons.org/tailwindcss/0ea5e9', shadow: 'rgba(14,165,233,0.15)' },
   { name: 'Swift', url: 'https://cdn.simpleicons.org/swift/f05138', shadow: 'rgba(240,81,56,0.15)' },
   { name: 'Kotlin', url: 'https://cdn.simpleicons.org/kotlin/a855f7', shadow: 'rgba(168,85,247,0.15)' },
@@ -31,14 +32,14 @@ const heroTechIcons = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[115vh] md:h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505] pb-24 md:pb-0">
+    <section className="relative h-screen flex flex-col justify-center items-center text-center px-10 md:px-20 overflow-hidden bg-[#050505]">
       {/* Central Blue Sphere Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] blur-3xl" />
         <div className="absolute inset-10 md:inset-20 border border-blue-500/5 rounded-full" />
       </div>
 
-      <div className="w-full z-10 flex flex-col items-center">
+      <div className="w-full z-10 flex flex-col items-center mt-12 md:mt-20">
         <motion.h1 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
