@@ -22,19 +22,32 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [indicatorImageIndex, setIndicatorImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   const images = project.images || (project.image ? [project.image] : []);
   const hasMultipleImages = images.length > 1;
 
+  // Keep indicator (blue dot) in sync with the crossfade so it doesn't "flash"
+  // before the new image is visible.
+  const IMAGE_CROSSFADE_DURATION_MS = 1000;
+
   useEffect(() => {
     if (!hasMultipleImages) return;
 
+    let indicatorTimeoutId: number | undefined;
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setCurrentImageIndex((prev) => {
+        const next = (prev + 1) % images.length;
+        indicatorTimeoutId = window.setTimeout(() => setIndicatorImageIndex(next), IMAGE_CROSSFADE_DURATION_MS);
+        return next;
+      });
     }, 4000); // 4 seconds slideshow
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (indicatorTimeoutId) window.clearTimeout(indicatorTimeoutId);
+    };
   }, [hasMultipleImages, images.length]);
 
   const cardContent = (
@@ -50,13 +63,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* Project Card Container - Normal 4:3 Aspect Ratio */}
       <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden shrink-0 group">
-        <AnimatePresence mode="wait">
+        {/* Crossfade between images: fade out + fade in overlapping */}
+        <AnimatePresence mode="sync">
           <motion.div
             key={currentImageIndex}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
             <Image
@@ -97,7 +111,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <div
                 key={idx}
                 className={`h-0.5 rounded-full transition-all duration-300 ${
-                  currentImageIndex === idx ? 'w-4 bg-[#60A5FA]' : 'w-1 bg-white/20'
+                  indicatorImageIndex === idx ? 'w-4 bg-[#60A5FA]' : 'w-1 bg-white/20'
                 }`}
               />
             ))}

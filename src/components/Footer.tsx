@@ -69,12 +69,22 @@ export function Footer() {
                 { label: 'About Us', href: '/company' },
                 { label: 'Portfolio', href: '/portfolio' },
                 { label: 'Contact', href: '/contact' },
-                { label: 'Client Portal', href: '/client-portal' }
+                { label: 'Client Portal', href: '/client-portal' },
+                { label: 'Schedule a Meeting', href: '/schedule', isButton: true }
               ].map((s) => (
                 <li key={s.label}>
-                  <Link href={s.href} className="text-gray-400 hover:text-white transition-all text-sm font-medium">
-                    {s.label}
-                  </Link>
+                  {s.isButton ? (
+                    <Link
+                      href={s.href}
+                      className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-5 py-2 text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 hover:bg-white/10 hover:border-white/20 transition-all w-full"
+                    >
+                      {s.label}
+                    </Link>
+                  ) : (
+                    <Link href={s.href} className="text-gray-400 hover:text-white transition-all text-sm font-medium">
+                      {s.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

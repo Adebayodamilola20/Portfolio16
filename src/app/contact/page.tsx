@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { ScrollFadeIn } from '@/components/ScrollFadeIn';
 
 const projectTypes = [
   "SaaS Platform",
@@ -106,7 +107,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center">
+    <ScrollFadeIn className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center">
       
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
@@ -331,7 +332,7 @@ export default function ContactPage() {
                  >
                    <p className="text-gray-400 text-sm font-medium mb-3">Prefer to speak directly with an expert?</p>
                    <a 
-                     href="#" 
+                    href="/schedule"
                      className="text-white hover:text-blue-400 border border-white/10 hover:border-blue-500/50 bg-[#050505] px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest transition-all"
                    >
                      Schedule a Discovery Call
@@ -370,6 +371,6 @@ export default function ContactPage() {
 
         </div>
       </div>
-    </div>
+    </ScrollFadeIn>
   );
 }

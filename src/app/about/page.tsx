@@ -27,11 +27,11 @@ function Counter({ from, to, duration = 2.5, delay = 0, suffix = '+' }: { from: 
 }
 
 const sections = [
+  { id: 'developer', title: 'The Developer' },
   { id: 'problem', title: 'The Problem' },
   { id: 'approach', title: 'My Approach' },
   { id: 'build', title: 'What I Build' },
   { id: 'philosophy', title: 'Philosophy' },
-  { id: 'developer', title: 'The Developer' },
   { id: 'projects', title: 'Projects' },
   { id: 'goal', title: 'My Goal' },
   { id: 'lets-build', title: "Let's Build" },
@@ -64,7 +64,7 @@ const fadeInUp = {
 };
 
 export default function AboutPage() {
-  const [activeSection, setActiveSection] = useState('problem');
+  const [activeSection, setActiveSection] = useState('developer');
 
   useEffect(() => {
     const observerOptions = {
@@ -169,20 +169,48 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* Section 1: The Problem */}
-            <section id="problem" className="scroll-mt-32">
+            {/* Section 1: The Developer */}
+            <section id="developer" className="scroll-mt-32">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "0px" }}>
-                <div className="text-[#0080FF] text-[10.5px] font-bold tracking-[0.2em] uppercase mb-6">The Problem</div>
-                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">The Problem With Most Software Projects</h2>
+                <div className="text-[#0080FF] text-[10.5px] font-bold tracking-[0.2em] uppercase mb-6">About Me</div>
+                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">AI Systems & Product Development</h2>
                 <div className="space-y-6 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
-                  <p>Many businesses eventually hit the limits of the tools they rely on.</p>
-                  <p>Templates become restrictive. Plugins conflict with each other. Third-party platforms force workflows that don't match how the company actually operates.</p>
-                  <p>As businesses grow, these limitations often lead to inefficiencies, technical debt, and expensive rebuilds.</p>
-                </div>
-                <div className="mt-10 pl-6 border-l-[3px] border-[#0080FF]">
-                  <p className="text-xl text-white font-medium">
-                    Software should adapt to the business, not the other way around.
+                  <p>
+                    I build intelligent applications powered by Python and retrieval workflows. My AI projects use a vector search engine to find relevant context, then generate clear answers.
                   </p>
+                  <p>
+                    I design great user experiences too, often pairing a Flutter frontend with reliable APIs. On the AI side, I make the system smarter with LangChain—so responses are more accurate, more relevant, and easier to use.
+                  </p>
+                  <ul className="space-y-3 mt-3">
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Engineered a CLI pipeline to automate repeatable tasks and speed up development.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Led development of <span className="text-white font-medium">ReloExpress</span>, a logistics and relocation app.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Collaborated on <span className="text-white font-medium">Ojawaja</span> (App Store & Play Store), a community platform that helps people meet based on current CGPA profiles from Caleb University (up to 4.1).
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Automated data preprocessing and experiment tracking in Python, and built fast, RESTful services using FastAPI.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Developed a voice-enabled AI assistant where users can speak, and the AI replies with voice responses.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Earned certificates in Networking and Fundamentals from my school.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#0080FF] rounded-full shrink-0 mt-2" />
+                      Integrated GPS-tracking features into a recent bike/courier delivery app to support real-time location updates.
+                    </li>
+                  </ul>
                 </div>
               </motion.div>
             </section>
@@ -215,7 +243,7 @@ export default function AboutPage() {
                 <div className="text-[#0080FF] text-[10.5px] font-bold tracking-[0.2em] uppercase mb-6">What I Build</div>
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Architected for Scale</h2>
                 <div className="space-y-6 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
-                  <p>I don't just write code; I architect systems. Every platform I build is designed with the future in mind, ensuring it can handle increased traffic, complex data models, and evolving business requirements.</p>
+                  <p>I don&apos;t just write code; I architect systems. Every platform I build is designed with the future in mind, ensuring it can handle increased traffic, complex data models, and evolving business requirements.</p>
                   <p>By leveraging modern frameworks and cloud-native architectures, I deliver high-performance solutions that are secure, reliable, and fundamentally scalable from day one.</p>
                 </div>
               </motion.div>
@@ -233,14 +261,20 @@ export default function AboutPage() {
               </motion.div>
             </section>
 
-            {/* Section 5: The Developer */}
-            <section id="developer" className="scroll-mt-32">
+            {/* Section 5: The Problem */}
+            <section id="problem" className="scroll-mt-32">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "0px" }}>
-                <div className="text-[#0080FF] text-[10.5px] font-bold tracking-[0.2em] uppercase mb-6">About Me</div>
-                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">A Specialized Expert</h2>
+                <div className="text-[#0080FF] text-[10.5px] font-bold tracking-[0.2em] uppercase mb-6">The Problem</div>
+                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">The Problem With Most Software Projects</h2>
                 <div className="space-y-6 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
-                  <p>I am a specialized software engineer, designer, and systems architect. I am not a generalist; I am a dedicated practitioner who deeply understands my domains.</p>
-                  <p>When you partner with me, you aren't just hiring a vendor; you're integrating a dedicated engineering partner into your business capable of executing your most ambitious technical initiatives.</p>
+                  <p>Many businesses eventually hit the limits of the tools they rely on.</p>
+                  <p>Templates become restrictive. Plugins conflict with each other. Third-party platforms force workflows that don&apos;t match how the company actually operates.</p>
+                  <p>As businesses grow, these limitations often lead to inefficiencies, technical debt, and expensive rebuilds.</p>
+                </div>
+                <div className="mt-10 pl-6 border-l-[3px] border-[#0080FF]">
+                  <p className="text-xl text-white font-medium">
+                    Software should adapt to the business, not the other way around.
+                  </p>
                 </div>
               </motion.div>
             </section>
@@ -272,9 +306,9 @@ export default function AboutPage() {
             {/* Section 8: Let's Build */}
             <section id="lets-build" className="scroll-mt-32">
                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "0px" }}>
-                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Let's Build Something <span className="text-[#0080FF]">Powerful</span></h2>
+                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Let&apos;s Build Something <span className="text-[#0080FF]">Powerful</span></h2>
                 <div className="space-y-10 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
-                  <p>If you're planning to launch a platform, automate operations, or develop a custom software system for your business, I am ready to help.</p>
+                  <p>If you&apos;re planning to launch a platform, automate operations, or develop a custom software system for your business, I am ready to help.</p>
                   <Link href="/contact" className="inline-flex rounded-full bg-white text-black px-8 py-4 font-bold text-xs tracking-widest items-center gap-3 hover:bg-gray-200 transition-colors uppercase w-max">
                      START A PROJECT WITH ME <ArrowRight className="w-4 h-4" />
                   </Link>
