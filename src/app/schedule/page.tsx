@@ -38,7 +38,10 @@ function formatDateLong(d: Date) {
   });
 }
 
+import { useRouter } from 'next/navigation';
+
 export default function SchedulePage() {
+  const router = useRouter();
   const [now, setNow] = useState(() => new Date());
   const today = startOfDay(now);
   const next7Days = Array.from({ length: 7 }, (_, i) => addDays(today, i));
@@ -47,8 +50,72 @@ export default function SchedulePage() {
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [confirmedSlot, setConfirmedSlot] = useState<{ day: Date; time: string } | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    projectDetails: '',
+    timeline: '',
+    canAttend: '',
+    budget: ''
+  });
+
+  const isFormValid = useMemo(() => {
+    return (
+      formData.firstName.trim() !== '' &&
+      formData.lastName.trim() !== '' &&
+      formData.email.trim() !== '' &&
+      formData.projectDetails.trim() !== '' &&
+      formData.timeline !== '' &&
+      formData.canAttend === 'Yes' &&
+      formData.budget !== ''
+    );
+  }, [formData]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isFormValid) return;
+
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          date: confirmedSlot ? formatDateLong(confirmedSlot.day) : '',
+          time: confirmedSlot?.time || '',
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        const params = new URLSearchParams({
+          name: `${formData.firstName} ${formData.lastName}`,
+          date: confirmedSlot ? formatDateLong(confirmedSlot.day) : '',
+          time: confirmedSlot?.time || '',
+          email: formData.email,
+          meetLink: data.meetLink || ''
+        });
+        router.push(`/schedule/success?${params.toString()}`);
+      } else {
+        alert('Error scheduling event: ' + data.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const CALL_DURATION_MINUTES = 45;
+// ... (rest of the component structure remains similar, focusing on the changes)
 
   const selectedDay = next7Days[selectedDayIndex] ?? today;
 
@@ -270,21 +337,39 @@ export default function SchedulePage() {
                   <h2 className="text-2xl font-bold text-[#050505]">Enter Details</h2>
                 </div>
 
-                <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); /* For next step */ }}>
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-bold text-[#050505] mb-2">First Name *</label>
-                      <input required type="text" className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors" />
+                      <input 
+                        required 
+                        type="text" 
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors" 
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-[#050505] mb-2">Last Name *</label>
-                      <input required type="text" className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors" />
+                      <input 
+                        required 
+                        type="text" 
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors" 
+                      />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-[#050505] mb-2">Email *</label>
-                    <input required type="email" className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors" />
+                    <input 
+                      required 
+                      type="email" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors" 
+                    />
                   </div>
 
                   <div>
@@ -293,7 +378,13 @@ export default function SchedulePage() {
                       <div className="flex items-center justify-center gap-2 px-4 py-3 border-r border-gray-300 bg-gray-50/50">
                         <span role="img" aria-label="Nigeria">🇳🇬</span>
                       </div>
-                      <input type="tel" placeholder="+234" className="w-full px-4 py-3 text-black border-none focus:outline-none" />
+                      <input 
+                        type="tel" 
+                        placeholder="+234" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-3 text-black border-none focus:outline-none" 
+                      />
                     </div>
                   </div>
 
@@ -304,13 +395,24 @@ export default function SchedulePage() {
                     <p className="text-xs text-gray-500 mb-3 leading-relaxed">
                       Please provide details that we can use to help prepare our meeting in line with your vision.
                     </p>
-                    <textarea required rows={4} className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors resize-none"></textarea>
+                    <textarea 
+                      required 
+                      rows={4} 
+                      value={formData.projectDetails}
+                      onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
+                      className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors resize-none"
+                    ></textarea>
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-[#050505] mb-2">What is your proposed starting timeline? *</label>
                     <div className="relative">
-                      <select required defaultValue="" className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors bg-white appearance-none pr-10">
+                      <select 
+                        required 
+                        value={formData.timeline}
+                        onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                        className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors bg-white appearance-none pr-10"
+                      >
                         <option value="" disabled>Select...</option>
                         <option value="Immediately">Immediately</option>
                         <option value="1-2 months">1-2 months</option>
@@ -329,7 +431,12 @@ export default function SchedulePage() {
                       This time is set aside exclusively for your project. Kindly book only if you&apos;re able to attend. Are you able to attend this meeting at the scheduled time? *
                     </label>
                     <div className="relative">
-                      <select required defaultValue="" className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors bg-white appearance-none pr-10">
+                      <select 
+                        required 
+                        value={formData.canAttend}
+                        onChange={(e) => setFormData({ ...formData, canAttend: e.target.value })}
+                        className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors bg-white appearance-none pr-10"
+                      >
                         <option value="" disabled>Select...</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -345,7 +452,12 @@ export default function SchedulePage() {
                   <div>
                     <label className="block text-sm font-bold text-[#050505] mb-2">Project Budget? *</label>
                     <div className="relative">
-                      <select required defaultValue="" className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors bg-white appearance-none pr-10">
+                      <select 
+                        required 
+                        value={formData.budget}
+                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                        className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black focus:outline-none focus:border-[#0A66FF] focus:ring-1 focus:ring-[#0A66FF] transition-colors bg-white appearance-none pr-10"
+                      >
                         <option value="" disabled>Select...</option>
                         <option value="500k - 1m">500k - 1m</option>
                         <option value="1m - 1.5m">1m - 1.5m</option>
@@ -367,9 +479,21 @@ export default function SchedulePage() {
                   <div className="pt-4 pb-2">
                     <button
                       type="submit"
-                      className="rounded-full bg-[#0A66FF] hover:bg-[#0758CC] text-white font-bold py-3.5 px-8 transition-colors text-sm"
+                      disabled={!isFormValid || isSubmitting}
+                      className={`rounded-full font-bold py-3.5 px-8 transition-all text-sm flex items-center gap-3 ${
+                        isFormValid && !isSubmitting
+                          ? 'bg-[#0A66FF] hover:bg-[#0758CC] text-white shadow-[0_5px_15px_rgba(10,102,255,0.2)]'
+                          : 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
+                      }`}
                     >
-                      Schedule Event
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          Scheduling...
+                        </>
+                      ) : (
+                        'Schedule Event'
+                      )}
                     </button>
                   </div>
                 </form>
