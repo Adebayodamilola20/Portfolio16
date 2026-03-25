@@ -289,7 +289,7 @@ export default function AISystemsPage() {
           <p className="text-gray-600 text-[1.1rem] leading-relaxed mb-12 max-w-xl mx-auto">
             AI automation is already transforming industries. Partner with Zera to build systems that give your business a competitive edge.
           </p>
-          <Link href="/contact" className="inline-flex items-center border border-gray-400 text-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-colors duration-300">
+          <Link href="/schedule" className="inline-flex items-center border border-gray-400 text-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-colors duration-300">
             Start your project <ArrowRight className="ml-3 w-3.5 h-3.5" strokeWidth={2.5} />
           </Link>
         </motion.div>

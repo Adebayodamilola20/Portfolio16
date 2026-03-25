@@ -343,7 +343,7 @@ export default function PortfolioPage() {
           <p className="text-gray-400 text-[1.1rem] leading-relaxed mb-14 max-w-xl mx-auto">
             Let's build something amazing together. Get in touch to discuss your project and see how we can help bring your vision to life.
           </p>
-          <Link href="/contact" className="inline-flex items-center bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-gray-200 transition-colors duration-300 border border-transparent shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+          <Link href="/schedule" className="inline-flex items-center bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-gray-200 transition-colors duration-300 border border-transparent shadow-[0_0_20px_rgba(255,255,255,0.1)]">
             Start your project <ArrowRight className="ml-3 w-3.5 h-3.5" strokeWidth={2.5} />
           </Link>
         </FadeIn>

@@ -65,12 +65,12 @@ export function Hero() {
            transition={{ duration: 1, delay: 0.4 }}
            className="flex flex-col sm:flex-row items-center gap-4"
         >
-          <Link href="/contact">
+          <Link href="/schedule">
             <button className="w-full sm:w-auto px-10 py-5 bg-[#F5F6EE] text-black rounded-full font-bold tracking-widest uppercase text-[10px] transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
               Start Your Project <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
-          <a href="#" download>
+          <a href="/CV-7.pdf" target="_blank" rel="noopener noreferrer">
             <button className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 text-white rounded-full font-bold tracking-widest uppercase text-[10px] transition-all hover:bg-white/5 active:scale-95 flex items-center justify-center gap-3">
               Download CV <Download className="w-4 h-4" />
             </button>

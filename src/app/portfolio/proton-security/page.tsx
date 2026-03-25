@@ -190,7 +190,7 @@ export default function ProtonSecurityCaseStudyPage() {
       {/* Final CTA */}
       <section className="px-6 py-40 text-center border-t border-white/5">
         <h2 className="text-4xl md:text-6xl font-medium mb-12">Ready to Build Your Product?</h2>
-        <Link href="/contact" className="inline-flex items-center bg-white text-black px-10 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase hover:bg-gray-200 transition-colors">
+        <Link href="/schedule" className="inline-flex items-center bg-white text-black px-10 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase hover:bg-gray-200 transition-colors">
           Start Your Project <ArrowRight className="ml-3 w-4 h-4" />
         </Link>
       </section>

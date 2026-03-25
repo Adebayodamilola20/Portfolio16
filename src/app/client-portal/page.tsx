@@ -15,7 +15,7 @@ export default function ClientPortal() {
           <input type="password" className="w-full bg-white/[0.03] border border-white/5 rounded-2xl p-6 text-white focus:outline-none focus:border-white/20 font-mono" placeholder="••••••••••••" />
           <button className="w-full bg-[#F5F6EE] text-black font-bold py-6 rounded-2xl text-[10px] tracking-[0.3em] uppercase hover:brightness-110 flex items-center justify-center gap-3">Authenticate <ArrowRight className="w-4 h-4" /></button>
         </div>
-        <Link href="/contact" className="inline-block mt-12 text-gray-500 hover:text-white transition-colors text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/5 pb-2">Contact Support</Link>
+        <Link href="/schedule" className="inline-block mt-12 text-gray-500 hover:text-white transition-colors text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/5 pb-2">Contact Support</Link>
       </motion.div>
     </ScrollFadeIn>
   );

@@ -30,7 +30,7 @@ export function Testimonials() {
               transition={{ duration: 0.8, delay: i * 0.2 }}
               className="p-16 border border-white/5 rounded-[3rem] bg-white/[0.02] backdrop-blur-sm relative group hover:border-white/10 transition-colors duration-500"
             >
-              <div className="text-gray-800 mb-12 text-7xl font-serif italic">"</div>
+              <div className="text-gray-800 mb-12 text-7xl font-serif italic">&quot;</div>
               <p className="text-gray-400 text-2xl md:text-3xl font-bold tracking-tight mb-12 italic">&ldquo;{t.quote}&rdquo;</p>
               <div className="flex flex-col border-t border-white/5 pt-10">
                 <span className="text-white font-bold tracking-tight text-xl">{t.author}</span>

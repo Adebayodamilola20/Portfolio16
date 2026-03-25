@@ -15,7 +15,7 @@ const cards = [
     title: 'About',
     href: '/company',
     topLabel: 'YEARS EXPERIENCE',
-    topValue: '10+',
+    topValue: '4+',
     dots: { cols: 15, rows: 8, color: 'bg-[#e5e5e5]' }
   },
   {

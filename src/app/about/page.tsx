@@ -309,7 +309,7 @@ export default function AboutPage() {
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Let&apos;s Build Something <span className="text-[#0080FF]">Powerful</span></h2>
                 <div className="space-y-10 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
                   <p>If you&apos;re planning to launch a platform, automate operations, or develop a custom software system for your business, I am ready to help.</p>
-                  <Link href="/contact" className="inline-flex rounded-full bg-white text-black px-8 py-4 font-bold text-xs tracking-widest items-center gap-3 hover:bg-gray-200 transition-colors uppercase w-max">
+                  <Link href="/schedule" className="inline-flex rounded-full bg-white text-black px-8 py-4 font-bold text-xs tracking-widest items-center gap-3 hover:bg-gray-200 transition-colors uppercase w-max">
                      START A PROJECT WITH ME <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -342,7 +342,7 @@ export default function AboutPage() {
                 </div>
                 
                 <p className="text-white font-bold text-base mb-6 text-center">Ready to build software that works?</p>
-                <Link href="/contact" className="rounded-full bg-white text-black px-7 py-3 font-bold text-[11px] tracking-widest flex items-center gap-2 hover:bg-gray-200 transition-all uppercase whitespace-nowrap">
+                <Link href="/schedule" className="rounded-full bg-white text-black px-7 py-3 font-bold text-[11px] tracking-widest flex items-center gap-2 hover:bg-gray-200 transition-all uppercase whitespace-nowrap">
                   START A PROJECT WITH ME <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

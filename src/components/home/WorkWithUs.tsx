@@ -42,7 +42,7 @@ export function WorkWithUs() {
           cutting-edge software solutions for clients worldwide.
         </p>
 
-        <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 border border-black/30 bg-[#F4F3ED] rounded-full font-mono text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-black hover:text-white transition-all group shadow-sm">
+        <Link href="/schedule" className="inline-flex items-center gap-3 px-8 py-4 border border-black/30 bg-[#F4F3ED] rounded-full font-mono text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-black hover:text-white transition-all group shadow-sm">
           Get In Touch
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
             <path d="M5 12h14M12 5l7 7-7 7"/>

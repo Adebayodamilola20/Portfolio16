@@ -65,7 +65,7 @@ const formItem = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } }
 };
 
-export default function ContactPage() {
+export function OldContactPage() {
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
   
@@ -344,7 +344,7 @@ export default function ContactPage() {
            </AnimatePresence>
 
            {/* Navigation Controls */}
-           <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+           <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between gap-6">
              {step > 1 ? (
                <button 
                  onClick={prevStep}
@@ -355,22 +355,138 @@ export default function ContactPage() {
              ) : (
                <div /> // Placeholder for spacing
              )}
-             
-             <button
-               onClick={nextStep}
-               disabled={!isStepValid()}
-               className={`px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-xs transition-all flex items-center gap-3
-                 ${isStepValid() 
-                   ? 'bg-white text-black hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
-                   : 'bg-white/5 text-white/30 cursor-not-allowed border border-white/5'}`}
-             >
-               {step === 4 ? 'Submit Project Request' : 'Next Step'} 
-               {step !== 4 && <ArrowRight className="w-4 h-4" />}
-             </button>
+             <div className="flex items-center gap-4">
+               <Link
+                 href="/schedule"
+                 className="px-6 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-xs transition-all flex items-center bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20"
+               >
+                 Schedule Time
+               </Link>
+               <button
+                 onClick={nextStep}
+                 disabled={!isStepValid()}
+                 className={`px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-xs transition-all flex items-center gap-3
+                   ${isStepValid() 
+                     ? 'bg-white text-black hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
+                     : 'bg-white/5 text-white/30 cursor-not-allowed border border-white/5'}`}
+               >
+                 {step === 4 ? 'Submit Project Request' : 'Next Step'} 
+                 {step !== 4 && <ArrowRight className="w-4 h-4" />}
+               </button>
+             </div>
            </div>
 
         </div>
       </div>
     </ScrollFadeIn>
+  );
+}
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  });
+
+  const updateData = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const isStepValid = () => {
+    return formData.name !== '' && formData.email !== '' && formData.phone !== '' && formData.message !== '';
+  };
+
+  return (
+    <div className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-6 flex flex-col justify-center">
+      <div className="max-w-4xl mx-auto w-full relative z-10">
+        
+        <form className="flex-1 flex flex-col space-y-6" onSubmit={(e) => { e.preventDefault(); }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-2">Name *</label>
+              <input 
+                type="text" 
+                value={formData.name}
+                onChange={(e) => updateData('name', e.target.value)}
+                className="w-full bg-white/[0.03] border border-white/5 rounded-2xl p-5 focus:outline-none focus:border-blue-500/50 focus:bg-white/5 transition-all text-white placeholder-gray-600 font-medium" 
+                placeholder="John Doe" 
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-2">Email *</label>
+              <input 
+                type="email" 
+                value={formData.email}
+                onChange={(e) => updateData('email', e.target.value)}
+                className="w-full bg-white/[0.03] border border-white/5 rounded-2xl p-5 focus:outline-none focus:border-blue-500/50 focus:bg-white/5 transition-all text-white placeholder-gray-600 font-medium" 
+                placeholder="john@example.com" 
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-2">Phone Number *</label>
+              <input 
+                type="tel" 
+                value={formData.phone}
+                onChange={(e) => updateData('phone', e.target.value)}
+                className="w-full bg-white/[0.03] border border-white/5 rounded-2xl p-5 focus:outline-none focus:border-blue-500/50 focus:bg-white/5 transition-all text-white placeholder-gray-600 font-medium" 
+                placeholder="+234 800 000 0000" 
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-2">Company (Optional)</label>
+              <input 
+                type="text" 
+                value={formData.company}
+                onChange={(e) => updateData('company', e.target.value)}
+                className="w-full bg-white/[0.03] border border-white/5 rounded-2xl p-5 focus:outline-none focus:border-blue-500/50 focus:bg-white/5 transition-all text-white placeholder-gray-600 font-medium" 
+                placeholder="Acme Corp" 
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-2">Tell us more about the project *</label>
+            <textarea 
+              value={formData.message}
+              onChange={(e) => updateData('message', e.target.value)}
+              className="w-full bg-white/[0.03] border border-white/5 rounded-2xl p-5 h-32 focus:outline-none focus:border-blue-500/50 focus:bg-white/5 transition-all text-white placeholder-gray-600 font-medium resize-none" 
+              placeholder="Briefly describe your goals..." 
+            />
+          </div>
+
+          <div className="mt-8 flex flex-col items-center justify-center p-6 bg-blue-900/10 border border-blue-500/20 rounded-2xl">
+            <p className="text-gray-400 text-sm font-medium mb-3">Prefer to speak directly with an expert?</p>
+            <Link 
+              href="/schedule"
+              className="text-white hover:text-blue-400 border border-white/10 hover:border-blue-500/50 bg-[#050505] px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest transition-all"
+            >
+              Schedule a Discovery Call
+            </Link>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-end gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+              <button
+                type="submit"
+                disabled={!isStepValid()}
+                className={`px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-xs transition-all flex items-center justify-center
+                  ${isStepValid() 
+                    ? 'bg-white text-black hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
+                    : 'bg-white/5 text-white/30 cursor-not-allowed border border-white/5'}`}
+              >
+                Submit Project Request
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
   );
 }

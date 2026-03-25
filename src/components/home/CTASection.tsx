@@ -23,7 +23,7 @@ export function CTASection() {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
           <Link 
-            href="/contact" 
+            href="/schedule" 
             className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#F5F6EE] text-black rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all transform active:scale-95"
           >
             Start Your Project <ArrowRight className="w-3.5 h-3.5" />

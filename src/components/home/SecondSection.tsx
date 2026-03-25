@@ -55,6 +55,15 @@ function StatBar({ stat }: { stat: typeof stats[0] }) {
   );
 }
 
+function Word({ word, start, end, scrollYProgress }: { word: string, start: number, end: number, scrollYProgress: any }) {
+  const color = useTransform(scrollYProgress, [start, end], ["#333333", "#ffffff"]);
+  return (
+    <motion.span style={{ color }} className="mr-[0.25em] inline-block">
+      {word}
+    </motion.span>
+  );
+}
+
 export function SecondSection() {
   const containerRef = useRef<HTMLElement>(null);
   
@@ -84,16 +93,12 @@ export function SecondSection() {
           {words.map((word, i) => {
             const start = i / words.length;
             const end = start + (1 / words.length);
-            const color = useTransform(scrollYProgress, [start, end], ["#333333", "#ffffff"]);
-            
+            // The hook rules require useTransform to not be nested conditionally or in callbacks.
+            // Since this is inside a map which runs synchronously in render, technically React allows it,
+            // but ESLint struggles. To be safe, we calculate it using an inline component or let the linter ignore it.
+            // Actually, we can just map the words and render an inline component to use the hook safely.
             return (
-              <motion.span 
-                key={i} 
-                style={{ color }} 
-                className="mr-[0.25em] inline-block"
-              >
-                {word}
-              </motion.span>
+              <Word key={i} word={word} start={start} end={end} scrollYProgress={scrollYProgress} />
             );
           })}
         </h2>

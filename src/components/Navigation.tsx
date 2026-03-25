@@ -106,7 +106,7 @@ export function Navigation() {
           <Link href="/about" className={`text-[10px] font-bold tracking-[0.2em] uppercase ${pathname === '/about' ? 'text-white' : 'text-gray-400 hover:text-white'}`}>About</Link>
           <Link href="/contact" className={`text-[10px] font-bold tracking-[0.2em] uppercase ${pathname === '/contact' ? 'text-white' : 'text-gray-400 hover:text-white'}`}>Contact</Link>
         </nav>
-        <Link href="/contact" className="hidden lg:flex bg-[#F5F6EE] text-black px-8 py-3 rounded-full text-[10px] font-bold tracking-[0.1em] uppercase shadow-lg shadow-white/5 hover:bg-white transition-colors">START YOUR PROJECT <span className="ml-2">→</span></Link>
+        <Link href="/schedule" className="hidden lg:flex bg-[#F5F6EE] text-black px-8 py-3 rounded-full text-[10px] font-bold tracking-[0.1em] uppercase shadow-lg shadow-white/5 hover:bg-white transition-colors">START YOUR PROJECT <span className="ml-2">→</span></Link>
         <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden text-white hover:text-gray-300">
           <Menu className="w-6 h-6" />
         </button>
@@ -160,7 +160,7 @@ export function Navigation() {
               <Link href="/contact" className={`text-base font-medium py-3 px-4 rounded-xl ${pathname === '/contact' ? 'bg-[#0f172a] text-white' : 'text-gray-300'}`} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
             </div>
 
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full mt-10 bg-[#F5F6EE] text-black py-4 rounded-full text-[11px] font-bold tracking-[0.1em] uppercase shadow-lg shadow-white/5 flex items-center justify-center gap-3">
+            <Link href="/schedule" onClick={() => setIsMobileMenuOpen(false)} className="w-full mt-10 bg-[#F5F6EE] text-black py-4 rounded-full text-[11px] font-bold tracking-[0.1em] uppercase shadow-lg shadow-white/5 flex items-center justify-center gap-3">
               START YOUR PROJECT <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>

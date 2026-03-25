@@ -16,7 +16,7 @@ export default function IntegrationsPage() {
       <section className="py-32 px-6 text-center">
         <ScrollFadeIn>
           <h2 className="text-5xl md:text-7xl font-bold mb-12 italic text-white tracking-tight">Ready to integrate?</h2>
-          <Link href="/contact" className="inline-flex items-center bg-[#F5F6EE] text-black px-12 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:brightness-110">Start your project <ArrowRight className="ml-3 w-4 h-4" /></Link>
+          <Link href="/schedule" className="inline-flex items-center bg-[#F5F6EE] text-black px-12 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:brightness-110">Start your project <ArrowRight className="ml-3 w-4 h-4" /></Link>
         </ScrollFadeIn>
       </section>
     </ScrollFadeIn>
