@@ -39,7 +39,7 @@ function StatBar({ stat }: { stat: typeof stats[0] }) {
            initial={{ height: "0%" }}
            whileInView={{ height: `${stat.value}%` }}
            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-           viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+           viewport={{ once: true, amount: 0.1 }}
            className={`w-full bg-gradient-to-t ${stat.color} rounded-t-xl opacity-90 transition-opacity drop-shadow-2xl shadow-${stat.color.split('-')[1]}-500`}
          />
       </div>

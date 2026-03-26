@@ -53,7 +53,7 @@ export default function FlutterMobileAppsPage() {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8 }}
           className="max-w-[70rem] mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-20 items-center"
         >
@@ -87,7 +87,7 @@ export default function FlutterMobileAppsPage() {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8 }}
           className="max-w-[70rem] mx-auto"
         >

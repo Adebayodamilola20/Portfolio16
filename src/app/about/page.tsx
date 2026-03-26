@@ -145,7 +145,7 @@ export default function AboutPage() {
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "0px" }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-[56px] font-medium tracking-tight leading-[1.1] mb-12 max-w-[800px] flex flex-wrap gap-x-3 gap-y-1">
                 {"Engineering the Software That Powers Modern Businesses.".split(" ").map((word, i) => (
