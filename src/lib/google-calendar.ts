@@ -2,13 +2,13 @@ import { google } from 'googleapis';
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 
-const auth = new google.auth.JWT({
-  email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-  key: process.env.GOOGLE_PRIVATE_KEY?.replace(/^"|"$/g, '').replace(/\\n/g, '\n'),
-  scopes: SCOPES,
-});
-
-const calendar = google.calendar({ version: 'v3', auth });
+function getGoogleAuth() {
+  return new google.auth.JWT({
+    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    key: process.env.GOOGLE_PRIVATE_KEY?.replace(/^"|"$/g, '').replace(/\\n/g, '\n'),
+    scopes: SCOPES,
+  });
+}
 
 export async function createCalendarEvent(eventData: {
   summary: string;
@@ -17,6 +17,8 @@ export async function createCalendarEvent(eventData: {
   endDateTime: string;
   calendarId?: string;
 }) {
+  const auth = getGoogleAuth();
+  const calendar = google.calendar({ version: 'v3', auth });
   try {
     const event = {
       summary: eventData.summary,
