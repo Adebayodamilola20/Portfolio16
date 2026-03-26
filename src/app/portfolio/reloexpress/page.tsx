@@ -173,7 +173,7 @@ export default function ReloExpressCaseStudyPage() {
             <div className="max-w-3xl relative z-10">
               <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-10">CLIENT IMPACT</p>
               <h3 className="text-2xl md:text-4xl font-light italic text-white leading-relaxed mb-12">
-                "The platform has revolutionized how we handle international moves. Our operational efficiency has improved by 40%, and customer feedback has been overwhelmingly positive."
+                &quot;The platform has revolutionized how we handle international moves. Our operational efficiency has improved by 40%, and customer feedback has been overwhelmingly positive.&quot;
               </h3>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold">R</div>

@@ -173,7 +173,7 @@ export default function ProtonSecurityCaseStudyPage() {
             <div className="max-w-3xl relative z-10">
               <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-10">CLIENT IMPACT</p>
               <h3 className="text-2xl md:text-4xl font-light italic text-white leading-relaxed mb-12">
-                "Our new site has substantially elevated our brand. We've seen a noticeable increase in inquiries from corporate clients who explicitly mention the professional look of our platform."
+                &quot;Our new site has substantially elevated our brand. We&apos;ve seen a noticeable increase in inquiries from corporate clients who explicitly mention the professional look of our platform.&quot;
               </h3>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold">P</div>

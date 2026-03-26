@@ -17,7 +17,7 @@ export function CTASection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-12">
-          <span className="text-white">Let's Build </span>
+          <span className="text-white">Let&apos;s Build </span>
           <span className="text-[#38bdf8]">Smarter, Faster, Better.</span>
         </h2>
         

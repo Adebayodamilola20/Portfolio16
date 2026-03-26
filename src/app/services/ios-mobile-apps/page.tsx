@@ -39,7 +39,7 @@ export default function FlutterMobileAppsPage() {
             className="max-w-[55rem] mx-auto text-left"
           >
             <p className="text-[1.25rem] leading-[1.8] text-gray-300 pb-20">
-              Mobile isn't just an extension of the web - it's where your users live. At Stephen Software Studio, we design and build <strong className="text-white font-medium">high-performance Flutter applications and cross-platform mobile solutions</strong> that deliver sleek design, flawless usability, and the reliability users expect on both iOS and Android.
+              Mobile isn&apos;t just an extension of the web - it&apos;s where your users live. At Stephen Software Studio, we design and build <strong className="text-white font-medium">high-performance Flutter applications and cross-platform mobile solutions</strong> that deliver sleek design, flawless usability, and the reliability users expect on both iOS and Android.
             </p>
           </motion.div>
         </div>
@@ -172,7 +172,7 @@ export default function FlutterMobileAppsPage() {
 
           <div className="flex flex-col relative pb-10">
             {[
-              { num: "01", title: "Discovery", desc: "We define the app's purpose, target users, and core features that will drive engagement and retention.", active: false },
+              { num: "01", title: "Discovery", desc: "We define the app&apos;s purpose, target users, and core features that will drive engagement and retention.", active: false },
               { num: "02", title: "Design", desc: "We craft a seamless mobile experience with sleek, performance-optimized UI that feels native and intuitive.", active: true },
               { num: "03", title: "Development", desc: "We build with cross-platform frameworks (Flutter/Dart) to ensure iOS and Android parity depending on your goals.", active: false },
               { num: "04", title: "Testing", desc: "We rigorously test across devices, screen sizes, OS versions, and edge cases to ensure flawless performance.", active: false },
@@ -293,7 +293,7 @@ export default function FlutterMobileAppsPage() {
             {[
               { num: "1", text: "Flutter applications with thousands of downloads and 5-star reviews for performance and design" },
               { num: "2", text: "Secure, compliant apps with smooth Apple Pay, Google Pay, and in-app purchase integrations" },
-              { num: "3", text: "Mobile-first platforms that became the primary growth channel for clients' businesses" }
+              { num: "3", text: "Mobile-first platforms that became the primary growth channel for clients&apos; businesses" }
             ].map((item, i) => (
               <div key={i} className={`bg-white/80 backdrop-blur-md p-10 flex flex-col md:flex-row items-start gap-5 text-left border-gray-200/50 ${i !== 2 ? 'border-b md:border-b-0 md:border-r' : ''}`}>
                 <span className="text-xl font-medium text-[#60A5FA] font-mono leading-none mt-1">{item.num}</span>

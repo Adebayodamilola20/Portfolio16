@@ -1,0 +1,107 @@
+
+> my-portfolio@0.1.0 lint
+> eslint
+
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/about/page.tsx
+   53:53  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   62:53  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  120:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/api/schedule/route.ts
+  37:11  warning  'calendarResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/company/page.tsx
+   53:53   error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   62:53   error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  120:13   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  179:132  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  218:27   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  243:56   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  243:84   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  275:95   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  277:28   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/contact/page.tsx
+   32:22  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   65:80  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  124:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:46  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/portfolio/[slug]/page.tsx
+  2:10  warning  'motion' is defined but never used      @typescript-eslint/no-unused-vars
+  3:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  4:8   warning  'Link' is defined but never used        @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/portfolio/page.tsx
+    7:8   warning  'Image' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  194:47  warning  'i' is defined but never used                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  311:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  325:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  344:16  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/portfolio/proton-security/page.tsx
+    6:17   warning  'StaticImageData' is defined but never used                      @typescript-eslint/no-unused-vars
+  176:17   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  176:71   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  176:199  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/portfolio/reloexpress/page.tsx
+    6:17   warning  'StaticImageData' is defined but never used                      @typescript-eslint/no-unused-vars
+  176:17   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  176:188  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/portfolio/win/page.tsx
+    6:17   warning  'StaticImageData' is defined but never used                      @typescript-eslint/no-unused-vars
+  177:17   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  177:176  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/schedule/page.tsx
+  119:9  warning  'CALL_DURATION_MINUTES' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/schedule/success/page.tsx
+  11:9   warning  'name' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  30:14  warning  'e' is defined but never used              @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/services/ai-systems-automations/page.tsx
+  101:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/services/enterprise-builds/page.tsx
+  2:10  warning  'motion' is defined but never used        @typescript-eslint/no-unused-vars
+  3:10  warning  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  3:23  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/services/ios-mobile-apps/page.tsx
+  42:25  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  42:61  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/services/page.tsx
+  2:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/services/systems-integrations/page.tsx
+  2:30  warning  'LinkIcon' is defined but never used      @typescript-eslint/no-unused-vars
+  2:40  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/app/services/websites-web-applications/page.tsx
+  2:10  warning  'Globe' is defined but never used         @typescript-eslint/no-unused-vars
+  2:17  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/components/home/CTASection.tsx
+  20:43  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/components/home/Hero.tsx
+  145:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  162:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/components/home/SecondSection.tsx
+  58:115  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/components/home/TechStackMarquee.tsx
+  56:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  69:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/adebayostephenoluwadamilola/Desktop/Portfolio/src/components/portfolio/ProjectCard.tsx
+  26:10  warning  'isHovered' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+✖ 56 problems (27 errors, 29 warnings)
+

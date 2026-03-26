@@ -174,7 +174,7 @@ export default function WinerCaseStudyPage() {
             <div className="max-w-3xl relative z-10">
               <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-10">CLIENT IMPACT</p>
               <h3 className="text-2xl md:text-4xl font-light italic text-white leading-relaxed mb-12">
-                "Zera transformed our community outreach with a portal that truly represents our mission. Our engagement rate has tripled since the launch of the new platform."
+                &quot;Zera transformed our community outreach with a portal that truly represents our mission. Our engagement rate has tripled since the launch of the new platform.&quot;
               </h3>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold">W</div>

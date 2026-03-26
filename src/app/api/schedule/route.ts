@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     const startDateTime = new Date(`${date} ${time}`);
     const endDateTime = new Date(startDateTime.getTime() + 45 * 60000); // 45 mins later
 
-    const calendarResponse = await createCalendarEvent({
+    await createCalendarEvent({
       summary: `Stephen Studio Discovery Call: ${firstName}`,
       description: `Discovery session regarding ${projectDetails}.\n\nClient: ${firstName} ${lastName}\nEmail: ${email}\nTimeline: ${timeline}`,
       startDateTime: startDateTime.toISOString(),

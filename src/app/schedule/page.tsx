@@ -116,7 +116,7 @@ export default function SchedulePage() {
     }
   };
 
-  const CALL_DURATION_MINUTES = 45;
+
 // ... (rest of the component structure remains similar, focusing on the changes)
 
   const selectedDay = next7Days[selectedDayIndex] ?? today;

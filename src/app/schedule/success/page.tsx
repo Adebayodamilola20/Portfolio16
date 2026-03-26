@@ -8,7 +8,7 @@ import { Suspense, useMemo } from 'react';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const name = searchParams.get('name') || 'Guest';
+
   const dateStr = searchParams.get('date') || '';
   const timeStr = searchParams.get('time') || '';
   const email = searchParams.get('email') || '';
@@ -27,7 +27,7 @@ function SuccessContent() {
       // Meeting lasts 45 mins. Expire 1 hour after start to be safe.
       const expiryDate = new Date(scheduledStart.getTime() + 60 * 60000);
       return new Date() > expiryDate;
-    } catch (e) {
+    } catch {
       return false;
     }
   }, [dateStr, timeStr]);

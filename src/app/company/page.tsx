@@ -176,7 +176,7 @@ export default function AboutPage() {
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">The Problem With Most Software Projects</h2>
                 <div className="space-y-6 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
                   <p>Many businesses eventually hit the limits of the tools they rely on.</p>
-                  <p>Templates become restrictive. Plugins conflict with each other. Third-party platforms force workflows that don't match how the company actually operates.</p>
+                  <p>Templates become restrictive. Plugins conflict with each other. Third-party platforms force workflows that don&apos;t match how the company actually operates.</p>
                   <p>As businesses grow, these limitations often lead to inefficiencies, technical debt, and expensive rebuilds.</p>
                 </div>
                 <div className="mt-10 pl-6 border-l-[3px] border-[#0080FF]">
@@ -215,7 +215,7 @@ export default function AboutPage() {
                 <div className="text-[#0080FF] text-[10.5px] font-bold tracking-[0.2em] uppercase mb-6">What I Build</div>
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Architected for Scale</h2>
                 <div className="space-y-6 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
-                  <p>I don't just write code; I architect systems. Every platform I build is designed with the future in mind, ensuring it can handle increased traffic, complex data models, and evolving business requirements.</p>
+                  <p>I don&apos;t just write code; I architect systems. Every platform I build is designed with the future in mind, ensuring it can handle increased traffic, complex data models, and evolving business requirements.</p>
                   <p>By leveraging modern frameworks and cloud-native architectures, I deliver high-performance solutions that are secure, reliable, and fundamentally scalable from day one.</p>
                 </div>
               </motion.div>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">A Specialized Expert</h2>
                 <div className="space-y-6 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
                   <p>I am a specialized software engineer, designer, and systems architect. I am not a generalist; I am a dedicated practitioner who deeply understands my domains.</p>
-                  <p>When you partner with me, you aren't just hiring a vendor; you're integrating a dedicated engineering partner into your business capable of executing your most ambitious technical initiatives.</p>
+                  <p>When you partner with me, you aren&apos;t just hiring a vendor; you&apos;re integrating a dedicated engineering partner into your business capable of executing your most ambitious technical initiatives.</p>
                 </div>
               </motion.div>
             </section>
@@ -272,9 +272,9 @@ export default function AboutPage() {
             {/* Section 8: Let's Build */}
             <section id="lets-build" className="scroll-mt-32">
                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "0px" }}>
-                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Let's Build Something <span className="text-[#0080FF]">Powerful</span></h2>
+                <h2 className="text-[28px] md:text-[32px] font-medium mb-8 tracking-tight">Let&apos;s Build Something <span className="text-[#0080FF]">Powerful</span></h2>
                 <div className="space-y-10 text-gray-400 text-lg leading-[1.8] max-w-[720px]">
-                  <p>If you're planning to launch a platform, automate operations, or develop a custom software system for your business, I am ready to help.</p>
+                  <p>If you&apos;re planning to launch a platform, automate operations, or develop a custom software system for your business, I am ready to help.</p>
                   <Link href="/schedule" className="inline-flex rounded-full bg-white text-black px-8 py-4 font-bold text-xs tracking-widest items-center gap-3 hover:bg-gray-200 transition-colors uppercase w-max">
                      START A PROJECT WITH ME <ArrowRight className="w-4 h-4" />
                   </Link>

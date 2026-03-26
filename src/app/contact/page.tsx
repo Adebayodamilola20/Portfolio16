@@ -52,7 +52,7 @@ const slideVariants: any = {
   })
 };
 
-const staggerForm = {
+const staggerForm: any = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -60,7 +60,7 @@ const staggerForm = {
   }
 };
 
-const formItem = {
+const formItem: any = {
   hidden: { opacity: 0, y: 15 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } }
 };
@@ -121,7 +121,7 @@ export function OldContactPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-medium tracking-tight mb-4"
           >
-            Let's build <span className="text-blue-500 italic">together.</span>
+            Let&apos;s build <span className="text-blue-500 italic">together.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -129,7 +129,7 @@ export function OldContactPage() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 text-lg md:text-xl font-medium"
           >
-            Tell us about your vision, and we'll help you bring it to life.
+            Tell us about your vision, and we&apos;ll help you bring it to life.
           </motion.p>
         </div>
 
