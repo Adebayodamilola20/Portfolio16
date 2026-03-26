@@ -100,7 +100,9 @@ export default function SchedulePage() {
           date: confirmedSlot ? formatDateLong(confirmedSlot.day) : '',
           time: confirmedSlot?.time || '',
           email: formData.email,
-          meetLink: data.meetLink || ''
+          meetLink: data.meetLink || '',
+          subject: data.subject || '',
+          code: data.confirmationCode || ''
         });
         router.push(`/schedule/success?${params.toString()}`);
       } else {
