@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { useHasMounted } from '@/lib/hooks';
 
 const testimonials = [
   {
@@ -73,6 +74,7 @@ function Card({ handle, message, avatar }: typeof testimonials[0]) {
 }
 
 export function CommunityMarquee() {
+  const mounted = useHasMounted();
   return (
     <section className="py-24 bg-[#0C0C0C] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 text-center mb-16 relative z-10">
@@ -103,8 +105,8 @@ export function CommunityMarquee() {
         <div className="flex overflow-hidden">
           <motion.div
             initial={{ x: "-50%" }}
-            animate={{ x: "0%" }}
-            transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
+            animate={mounted ? { x: "0%" } : { x: "-50%" }}
+            transition={mounted ? { duration: 160, repeat: Infinity, ease: "linear" } : { duration: 0 }}
             className="flex gap-4 w-max"
           >
             {[...row1, ...row1, ...row1, ...row1, ...row1, ...row1].map((item, i) => (
@@ -117,8 +119,8 @@ export function CommunityMarquee() {
         <div className="flex overflow-hidden">
           <motion.div
             initial={{ x: "0%" }}
-            animate={{ x: "-50%" }}
-            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+            animate={mounted ? { x: "-50%" } : { x: "0%" }}
+            transition={mounted ? { duration: 120, repeat: Infinity, ease: "linear" } : { duration: 0 }}
             className="flex gap-4 w-max"
           >
             {[...row2, ...row2, ...row2, ...row2, ...row2, ...row2].map((item, i) => (
@@ -131,8 +133,8 @@ export function CommunityMarquee() {
         <div className="flex overflow-hidden">
           <motion.div
             initial={{ x: "-50%" }}
-            animate={{ x: "0%" }}
-            transition={{ duration: 140, repeat: Infinity, ease: "linear" }}
+            animate={mounted ? { x: "0%" } : { x: "-50%" }}
+            transition={mounted ? { duration: 140, repeat: Infinity, ease: "linear" } : { duration: 0 }}
             className="flex gap-4 w-max"
           >
             {[...row3, ...row3, ...row3, ...row3, ...row3, ...row3].map((item, i) => (

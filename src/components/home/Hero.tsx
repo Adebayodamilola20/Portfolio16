@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { useHasMounted } from '@/lib/hooks';
 
 const heroTechIcons = [
 // ... (icons remain same, skipping for brevity in target content matching)
@@ -39,6 +40,7 @@ const heroTechIcons = [
 
 export function Hero() {
   const [isProject, setIsProject] = React.useState(true);
+  const mounted = useHasMounted();
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -137,8 +139,9 @@ export function Hero() {
         
         {/* Row 1: Left to Right on Mobile, All screens */}
         <motion.div 
-          animate={{ x: ["-50%", "0%"] }} 
-          transition={{ ease: "linear", duration: 45, repeat: Infinity }} 
+          initial={{ x: "-50%" }}
+          animate={mounted ? { x: ["-50%", "0%"] } : { x: "-50%" }} 
+          transition={mounted ? { ease: "linear", duration: 45, repeat: Infinity } : { duration: 0 }} 
           className="flex whitespace-nowrap gap-5 w-max px-5"
         >
           {[...heroTechIcons, ...heroTechIcons, ...heroTechIcons].map((item, index) => (
@@ -154,8 +157,9 @@ export function Hero() {
 
         {/* Row 2: Right to Left on Mobile, Hidden on Laptop */}
         <motion.div 
-          animate={{ x: ["0%", "-50%"] }} 
-          transition={{ ease: "linear", duration: 45, repeat: Infinity }} 
+          initial={{ x: "0%" }}
+          animate={mounted ? { x: ["0%", "-50%"] } : { x: "0%" }} 
+          transition={mounted ? { ease: "linear", duration: 45, repeat: Infinity } : { duration: 0 }} 
           className="flex md:hidden whitespace-nowrap gap-5 w-max px-5"
         >
           {[...heroTechIcons, ...heroTechIcons, ...heroTechIcons].map((item, index) => (

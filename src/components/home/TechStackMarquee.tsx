@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { useHasMounted } from '@/lib/hooks';
 
 const row1 = [
   { name: 'Node.js', url: 'https://cdn.simpleicons.org/nodedotjs' },
@@ -32,6 +33,7 @@ const row2 = [
 ];
 
 export function TechStackMarquee() {
+  const mounted = useHasMounted();
   return (
     <section className="py-20 md:py-32 bg-[#050505] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
@@ -52,8 +54,9 @@ export function TechStackMarquee() {
         
         {/* Row 1: Top Row - Left to Right on Mobile, All screens */}
         <motion.div 
-          animate={{ x: ["-50%", "0%"] }} 
-          transition={{ ease: "linear", duration: 40, repeat: Infinity }} 
+          initial={{ x: "-50%" }}
+          animate={mounted ? { x: ["-50%", "0%"] } : { x: "-50%" }} 
+          transition={mounted ? { ease: "linear", duration: 40, repeat: Infinity } : { duration: 0 }} 
           className="flex whitespace-nowrap gap-5 w-max -ml-[120px]"
         >
           {[...row1, ...row1, ...row1, ...row1, ...row1].map((item, index) => (
@@ -65,8 +68,9 @@ export function TechStackMarquee() {
 
         {/* Row 2: Lower Row - Right to Left on All screens */}
         <motion.div 
-          animate={{ x: ["0%", "-50%"] }} 
-          transition={{ ease: "linear", duration: 40, repeat: Infinity }} 
+          initial={{ x: "0%" }}
+          animate={mounted ? { x: ["0%", "-50%"] } : { x: "0%" }} 
+          transition={mounted ? { ease: "linear", duration: 40, repeat: Infinity } : { duration: 0 }} 
           className="flex whitespace-nowrap gap-5 w-max"
         >
           {[...row2, ...row2, ...row2, ...row2, ...row2].map((item, index) => (

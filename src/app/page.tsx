@@ -10,8 +10,15 @@ import { CommunityMarquee } from "@/components/home/CommunityMarquee";
 import { WorkWithUs } from "@/components/home/WorkWithUs";
 import { CTASection } from "@/components/home/CTASection";
 import { motion } from "framer-motion";
+import { useHasMounted } from "@/lib/hooks";
 
 function FadeIn({ children }: { children: React.ReactNode }) {
+  const mounted = useHasMounted();
+  
+  if (!mounted) {
+    return <div>{children}</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
