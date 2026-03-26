@@ -7,10 +7,15 @@ import React from 'react';
 
 const heroTechIcons = [
 // ... (icons remain same, skipping for brevity in target content matching)
+  { name: 'Prisma', url: 'https://cdn.simpleicons.org/prisma/ffffff', shadow: 'rgba(255,255,255,0.1)' },
+  { name: 'Firebase', url: 'https://cdn.simpleicons.org/firebase/ffca28', shadow: 'rgba(255,202,40,0.15)' },
+  { name: 'Supabase', url: 'https://cdn.simpleicons.org/supabase/3ecf8e', shadow: 'rgba(62,207,142,0.15)' },
+  { name: 'Stripe', url: 'https://cdn.simpleicons.org/stripe/635bff', shadow: 'rgba(99,91,255,0.15)' },
+  { name: 'Flutterwave', url: 'https://cdn.simpleicons.org/flutterwave/f58220', shadow: 'rgba(245,130,32,0.15)' },
+  { name: 'Socket.io', url: 'https://cdn.simpleicons.org/socketdotio/ffffff', shadow: 'rgba(255,255,255,0.1)' },
+  { name: 'Google Cloud', url: 'https://cdn.simpleicons.org/googlecloud/4285f4', shadow: 'rgba(66,133,244,0.15)' },
   { name: 'Flutter', url: 'https://cdn.simpleicons.org/flutter/38bdf8', shadow: 'rgba(56,189,248,0.15)' },
   { name: 'Dart', url: 'https://cdn.simpleicons.org/dart/0284c7', shadow: 'rgba(2,132,199,0.15)' },
-  { name: 'Firebase', url: 'https://cdn.simpleicons.org/firebase/f59e0b', shadow: 'rgba(245,158,11,0.15)' },
-  { name: 'Supabase', url: 'https://cdn.simpleicons.org/supabase/10b981', shadow: 'rgba(16,185,129,0.15)' },
   { name: 'Go', url: 'https://cdn.simpleicons.org/go/06b6d4', shadow: 'rgba(6,182,212,0.15)' },
   { name: 'React', url: 'https://cdn.simpleicons.org/react/06b6d4', shadow: 'rgba(6,182,212,0.15)' },
   { name: 'Figma', url: 'https://cdn.simpleicons.org/figma/f24e1e', shadow: 'rgba(242,78,30,0.15)' },
@@ -126,7 +131,7 @@ export function Hero() {
       </div>
 
       {/* Scrolling Tech Stack Bar (Replacing static bar) */}
-      <div className="absolute bottom-0 left-0 w-full h-auto py-4 overflow-hidden border-t border-white/5 bg-black/40 backdrop-blur-md flex flex-col gap-4 items-center">
+      <div className="absolute bottom-0 left-0 w-full h-auto py-2 md:py-4 overflow-hidden border-t border-white/5 bg-black/40 backdrop-blur-md flex flex-col gap-1.5 md:gap-4 items-center">
         <div className="absolute left-0 top-0 w-24 md:w-56 h-full bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 w-24 md:w-56 h-full bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
         
