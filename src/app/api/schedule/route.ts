@@ -4,9 +4,14 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { createCalendarEvent } from '@/lib/google-calendar';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
+  if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY is missing');
+    return NextResponse.json({ success: false, error: 'Mail server not configured' }, { status: 500 });
+  }
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await req.json();
     const { firstName, lastName, email, phone, projectDetails, timeline, budget, date, time, canAttend } = body;
