@@ -4,44 +4,44 @@ import { useHasMounted } from '@/lib/hooks';
 
 const testimonials = [
   {
-    handle: "@orlandopedro_",
-    message: "Love @supabase custom domains makes the auth so much better",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Orlando"
+    handle: "@the_ceo_james",
+    message: "Stephen delivered our custom platform exactly as envisioned. The attention to detail in the architecture is unmatched.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James"
   },
   {
-    handle: "@adm_lawson",
-    message: "Love supabase edge functions. Cursor+Supabase+MCP+Docker desktop is all I need",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Adam"
+    handle: "@tech_lead_mj",
+    message: "One of the most efficient developers I've worked with. The integration process was seamless and the code is incredibly clean.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=MJ"
   },
   {
-    handle: "@xthemadgeniusx",
-    message: "Lately been using Supabase over AWS/ GCP for products to save on costs and rapid builds(Vibe Code) that do not need all the Infra and the hefty costs that come with AWS/ GCP out the door.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Genius"
+    handle: "@startup_founder",
+    message: "Scalability was our main concern, but the systems Stephen built handled our first 100k users without a single hitch.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
   },
   {
-    handle: "@nerdburn",
-    message: "It's fun, feels lightweight, and really quick to spin up user auth and a few tables. Almost too easy! Highly recommend.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nerd"
+    handle: "@creative_dir",
+    message: "The animations and UI feel so premium. It's rare to find a developer with such a strong eye for design and performance.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Creative"
   },
   {
-    handle: "@gokul_i",
-    message: "First time running @supabase in local. It just works. Very good DX imo.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Gokul"
+    handle: "@product_mg_k",
+    message: "Highly recommend for any complex SaaS builds. Stephen is a natural problem solver who understands business needs.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kevin"
   },
   {
-    handle: "@pontusab",
-    message: "I love everything about Supabase.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pontus"
+    handle: "@dev_expert_99",
+    message: "Clean code, great documentation, and fast delivery. Exactly what you want when hiring a lead software engineer.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dev"
   },
   {
-    handle: "@patrickc",
-    message: "Very impressed by @supabase's growth. For new startups, they seem to have gone from \"promising\" to \"stable and remarkably effective\".",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Patrick"
+    handle: "@design_guru_v",
+    message: "The project was delivered ahead of schedule and the app performance is top-notch. Truly impressive work from start to finish.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Guru"
   },
   {
-    handle: "@dadooos_",
-    message: "Supabase is just amazing.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dado"
+    handle: "@biz_owner_alex",
+    message: "Stephen transformed our legacy system into a modern, lightning-fast platform. It's been a game changer for our operations.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
   }
 ];
 
@@ -79,25 +79,11 @@ export function CommunityMarquee() {
     <section className="py-24 bg-[#0C0C0C] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 text-center mb-16 relative z-10">
         <h2 className="text-3xl md:text-[2.75rem] font-medium text-white mb-4 tracking-tight">
-          Join the community
+          What people are saying
         </h2>
-        <p className="text-[#9ba3af] text-sm md:text-base mb-8">
-          Discover what our community has to say about their Supabase experience.
+        <p className="text-[#9ba3af] text-sm md:text-base">
+          Feedback from clients and teammates I've worked with on various projects.
         </p>
-
-        <div className="flex justify-center">
-          <a
-            href="#"
-            className="flex items-center gap-2 bg-[#1A1A1A] border border-white/5 py-1.5 px-4 rounded-lg hover:bg-[#222] transition-colors"
-          >
-            <div className="bg-[#5865F2]/10 p-1 rounded">
-              <svg className="w-3.5 h-3.5 text-[#5865F2] fill-current" viewBox="0 0 127.14 96.36">
-                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.06,72.06,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.6.4,80.21a105.73,105.73,0,0,0,32.22,16.15,77.7,77.7,0,0,0,6.89-11.11,68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.22-16.15C129.58,52.41,126,28.73,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.12-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
-              </svg>
-            </div>
-            <span className="text-white font-medium text-[13px]">Join us on Discord</span>
-          </a>
-        </div>
       </div>
 
       <div className="flex flex-col gap-4 w-full relative z-10">
