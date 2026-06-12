@@ -1,104 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Search, X } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import ProjectCard from '@/components/portfolio/ProjectCard';
-import image1 from '@/assets/image1.png';
-import image2 from '@/assets/image2.png';
-import image3 from '@/assets/image3.png';
-import img4 from '@/assets/iimg4.png';
-import img5 from '@/assets/img5.png';
-import img6 from '@/assets/img6.png';
-import gig3 from '@/assets/gig3.png';
-import gig4 from '@/assets/gig4.png';
-import gig5 from '@/assets/gig5.png';
-import { StaticImageData } from 'next/image';
-
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  image?: string | StaticImageData;
-  images?: (string | StaticImageData)[];
-  description?: string;
-  link?: string;
-}
-
-const categories = ["ALL", "SAAS", "WEB APPS", "MOBILE APPS", "AI SYSTEMS", "AUTOMATIONS", "WEBSITES"];
-
-const projects: Project[] = [
-  {
-    id: 'genesai',
-    title: 'Genesai',
-    category: 'SAAS',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop',
-    description: 'Production-ready SaaS platform with multi-API system, agency capabilities, and real-time tracking.',
-    link: '#'
-  },
-  {
-    id: 'adapt-lab',
-    title: 'The Adapt Lab',
-    category: 'AI SYSTEMS',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop',
-    description: 'Advanced AI system integration for research laboratories and data analysis.',
-    link: '#'
-  },
-  {
-    id: 'win',
-    title: 'WINER',
-    category: 'WEB APPS',
-    images: [
-      image1,
-      image2,
-      image3
-    ],
-    description: 'Women Impacting Nigeria (WIN)',
-    link: '/portfolio/win'
-  },
-  {
-    id: 'proton-security',
-    title: 'Proton Security',
-    category: 'WEBSITES',
-    images: [
-      img4,
-      img5,
-      img6
-    ],
-    description: 'Protonn Security is a security company ',
-    link: '/portfolio/proton-security'
-  },
-  {
-    id: 'reloexpress',
-    title: 'ReloExpress',
-    category: 'WEB APPS',
-    images: [
-      gig3,
-      gig4,
-      gig5
-    ],
-    description: 'ReloExpress is a logistics and relocation platform designed to simplify the moving process.',
-    link: '/portfolio/reloexpress'
-  },
-  {
-    id: 'healthmate',
-    title: 'HealthMate',
-    category: 'MOBILE APPS',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1600&auto=format&fit=crop',
-    description: 'Intuitive mobile application for personal health tracking and wellness management.',
-    link: '#'
-  },
-  {
-    id: 'selfie-spot',
-    title: 'The Selfie Spot',
-    category: 'WEBSITES',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop',
-    description: 'A modern photography studio and event space platform.',
-    link: '#'
-  },
-];
+import { categories, projects } from '@/data/projects';
 
 const techStack = [
   { name: 'Node.js', url: 'https://cdn.simpleicons.org/nodedotjs' },
@@ -124,7 +31,7 @@ const techStack = [
   { name: 'React', url: 'https://cdn.simpleicons.org/react' },
   { name: 'Node.js', url: 'https://cdn.simpleicons.org/nodedotjs' },
   { name: 'Python', url: 'https://cdn.simpleicons.org/python' },
-  { name: 'TypeScript', url: 'https://cdn.simpleicons.org/typescript' }
+  { name: 'TypeScript', url: 'https://cdn.simpleicons.org/typescript' },
 ];
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) {
@@ -143,10 +50,26 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("ALL");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProjects = activeCategory === "ALL"
-    ? projects
-    : projects.filter(p => p.category === activeCategory);
+  const filteredProjects = useMemo(() => {
+    let result = activeCategory === "ALL"
+      ? projects
+      : projects.filter(p => p.categories.includes(activeCategory));
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.description?.toLowerCase().includes(q) ||
+        p.tags?.some(t => t.toLowerCase().includes(q)) ||
+        p.categories.some(c => c.toLowerCase().includes(q)) ||
+        p.technologies?.some(t => t.toLowerCase().includes(q))
+      );
+    }
+
+    return result;
+  }, [activeCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-blue-500/30 font-sans">
@@ -171,6 +94,34 @@ export default function PortfolioPage() {
             </p>
           </motion.div>
 
+          {/* Search Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="max-w-lg mx-auto mb-10"
+          >
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <input
+                type="text"
+                placeholder="Search projects, technologies, categories..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-11 pr-10 py-3.5 bg-[#0c0e15] border border-white/10 rounded-full text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Category Tabs */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -194,18 +145,41 @@ export default function PortfolioPage() {
 
         {/* Portfolio Grid */}
         <div className="max-w-[85rem] mx-auto relative z-10">
+          {/* Results count */}
+          {(searchQuery || activeCategory !== "ALL") && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center mb-8"
+            >
+              <span className="text-gray-500 text-[11px] uppercase tracking-widest font-bold">
+                {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''} found
+              </span>
+            </motion.div>
+          )}
+
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, i) => (
+              {filteredProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </AnimatePresence>
           </motion.div>
 
           {filteredProjects.length === 0 && (
-            <div className="text-center py-20 text-gray-500">
-              No projects found for this category.
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-20"
+            >
+              <p className="text-gray-500 text-lg mb-4">No projects found.</p>
+              <button
+                onClick={() => { setSearchQuery(""); setActiveCategory("ALL"); }}
+                className="text-[#60A5FA] text-sm font-bold tracking-wider uppercase hover:underline"
+              >
+                Clear filters
+              </button>
+            </motion.div>
           )}
         </div>
       </section>
@@ -228,7 +202,6 @@ export default function PortfolioPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-0">
-            {/* Left Column */}
             <div className="flex flex-col gap-10">
               <div>
                 <h3 className="text-xl md:text-[1.35rem] font-normal text-white mb-3">Payment Processing</h3>
@@ -256,7 +229,6 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            {/* Right Column */}
             <div className="flex flex-col border-l border-white/5 divide-y divide-white/5 -ml-4 md:ml-0 overflow-hidden rounded-xl md:rounded-none md:border-none md:divide-none">
               <div className="p-6 md:p-8 flex items-start gap-4">
                 <span className="text-[#60A5FA] font-bold text-xl leading-none mt-1">:</span>
@@ -305,7 +277,6 @@ export default function PortfolioPage() {
           <div className="absolute left-0 top-0 w-24 md:w-56 h-full bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 w-24 md:w-56 h-full bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent z-10 pointer-events-none" />
 
-          {/* Row 1: Left to Right on Mobile, All screens */}
           <motion.div
             animate={{ x: ["-50%", "0%"] }}
             transition={{ ease: "linear", duration: 50, repeat: Infinity }}
@@ -319,7 +290,6 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          {/* Row 2: Right to Left on All screens */}
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{ ease: "linear", duration: 50, repeat: Infinity }}
