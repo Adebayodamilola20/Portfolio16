@@ -5,7 +5,7 @@ import Script from 'next/script';
 import './globals.css';
 import type { Metadata } from 'next';
 
-const siteUrl = 'https://adebayostephen.com';
+const siteUrl = 'https://stephentechstudio.vercel.app';
 
 const personSchema = {
   '@context': 'https://schema.org',
