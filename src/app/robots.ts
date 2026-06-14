@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://stephen-studio.com/sitemap.xml',
+    sitemap: 'https://adebayostephen.com/sitemap.xml',
   }
 }
