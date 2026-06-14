@@ -1,44 +1,92 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { PageTransition } from '@/components/PageTransition';
+import Script from 'next/script';
 import './globals.css';
+import type { Metadata } from 'next';
 
-export const metadata = {
+const siteUrl = 'https://adebayostephen.com';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Adebayo Stephen',
+  jobTitle: ['Software Engineer', 'AI Developer'],
+  url: siteUrl,
+  sameAs: [
+    'https://github.com/adebayostephen',
+    'https://linkedin.com/in/adebayostephen',
+    'https://x.com/adebayostephen',
+    siteUrl
+  ],
+  knowsAbout: [
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Next.js',
+    'Node.js',
+    'Python',
+    'Machine Learning',
+    'AI Development',
+    'Full Stack Development',
+    'Mobile App Development',
+    'Cloud Computing',
+    'DevOps'
+  ],
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Self-taught Developer'
+  }
+};
+
+export const metadata: Metadata = {
   title: {
-    default: 'Stephen Studio | Custom Software & Mobile App Development',
-    template: '%s | Stephen Studio'
+    default: 'Adebayo Stephen | Software Engineer & AI Developer',
+    template: '%s | Adebayo Stephen'
   },
-  description: 'Stephen Studio specializes in building high-performance websites, custom SaaS platforms, and iOS mobile applications for businesses worldwide.',
-  keywords: ['Stephen Studio', 'Software Engineering', 'Next.js', 'React', 'Mobile App Development', 'SaaS', 'Web Development'],
-  authors: [{ name: 'Stephen Studio' }],
-  creator: 'Stephen Studio',
-  publisher: 'Stephen Studio',
+  description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps. Available for freelance and full-time opportunities.',
+  keywords: ['Adebayo Stephen', 'Software Engineer', 'AI Developer', 'Full Stack Developer', 'React', 'Next.js', 'TypeScript', 'Python', 'Machine Learning', 'Freelance Developer'],
+  authors: [{ name: 'Adebayo Stephen', url: siteUrl }],
+  creator: 'Adebayo Stephen',
+  publisher: 'Adebayo Stephen',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    type: 'website',
+    type: 'profile',
     locale: 'en_US',
-    url: 'https://stephen-studio.com',
-    siteName: 'Stephen Studio',
-    title: 'Stephen Studio | Custom Software & Mobile App Development',
-    description: 'Custom software development, mobile apps, and scalable web solutions by Stephen Studio.',
+    url: siteUrl,
+    siteName: 'Adebayo Stephen',
+    title: 'Adebayo Stephen | Software Engineer & AI Developer',
+    description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
+    profile: {
+      firstName: 'Adebayo',
+      lastName: 'Stephen',
+      username: 'adebayostephen',
+      gender: 'male',
+    },
     images: [
       {
-        url: 'https://stephen-studio.com/og-image.png',
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Stephen Studio',
+        alt: 'Adebayo Stephen - Software Engineer & AI Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stephen Studio | Custom Software & Mobile App Development',
-    description: 'Custom software development, mobile apps, and scalable web solutions by Stephen Studio.',
-    images: ['https://stephen-studio.com/og-image.png'],
+    site: '@adebayostephen',
+    creator: '@adebayostephen',
+    title: 'Adebayo Stephen | Software Engineer & AI Developer',
+    description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -51,11 +99,51 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  other: {
+    'schema:Person': JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Adebayo Stephen',
+      jobTitle: ['Software Engineer', 'AI Developer'],
+      url: siteUrl,
+      sameAs: [
+        'https://github.com/adebayostephen',
+        'https://linkedin.com/in/adebayostephen',
+        'https://x.com/adebayostephen',
+        siteUrl
+      ],
+      knowsAbout: [
+        'JavaScript',
+        'TypeScript',
+        'React',
+        'Next.js',
+        'Node.js',
+        'Python',
+        'Machine Learning',
+        'AI Development',
+        'Full Stack Development',
+        'Mobile App Development',
+        'Cloud Computing',
+        'DevOps'
+      ],
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'Self-taught Developer'
+      }
+    })
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          strategy="lazyOnload"
+        />
+      </head>
       <body className="antialiased bg-[#050505]">
         <Navigation />
         <PageTransition>

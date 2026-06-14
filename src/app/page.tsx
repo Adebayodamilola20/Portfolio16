@@ -11,6 +11,22 @@ import { WorkWithUs } from "@/components/home/WorkWithUs";
 import { CTASection } from "@/components/home/CTASection";
 import { motion } from "framer-motion";
 import { useHasMounted } from "@/lib/hooks";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps. Available for freelance and full-time opportunities.',
+  openGraph: {
+    title: 'Adebayo Stephen | Software Engineer & AI Developer',
+    description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
+    type: 'profile',
+    profile: {
+      firstName: 'Adebayo',
+      lastName: 'Stephen',
+      username: 'adebayostephen',
+    },
+  },
+};
 
 function FadeIn({ children }: { children: React.ReactNode }) {
   const mounted = useHasMounted();
