@@ -58,19 +58,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: 'JgjUJFeozkQoSSlRytyyeD3UpjIo256B3PpiAo35RG0',
+  },
   openGraph: {
-    type: 'profile',
+    type: 'website',
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Adebayo Stephen',
     title: 'Adebayo Stephen | Software Engineer & AI Developer',
     description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
-    profile: {
-      firstName: 'Adebayo',
-      lastName: 'Stephen',
-      username: 'adebayostephen',
-      gender: 'male',
-    },
     images: [
       {
         url: `${siteUrl}/og-image.png`,
@@ -99,39 +96,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  other: {
-    'schema:Person': JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Adebayo Stephen',
-      jobTitle: ['Software Engineer', 'AI Developer'],
-      url: siteUrl,
-      sameAs: [
-        'https://github.com/adebayostephen',
-        'https://linkedin.com/in/adebayostephen',
-        'https://x.com/adebayostephen',
-        siteUrl
-      ],
-      knowsAbout: [
-        'JavaScript',
-        'TypeScript',
-        'React',
-        'Next.js',
-        'Node.js',
-        'Python',
-        'Machine Learning',
-        'AI Development',
-        'Full Stack Development',
-        'Mobile App Development',
-        'Cloud Computing',
-        'DevOps'
-      ],
-      alumniOf: {
-        '@type': 'EducationalOrganization',
-        name: 'Self-taught Developer'
-      }
-    })
-  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
