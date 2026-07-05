@@ -1,0 +1,33 @@
+lowchart TD
+
+    A[Guard Opens Mobile App] --> B[Clock In]
+
+    B --> C{Inside Geofence?}
+
+    C -- No --> D[Reject Clock-In]
+
+    C -- Yes --> E[Clock-In Successful]
+
+    E --> F[Scan QR Checkpoint]
+
+    F --> G[Show Post Orders]
+
+    G --> H[Guard Acknowledges]
+
+    H --> I[Save Patrol Scan]
+
+    I --> J[Update Live Dashboard]
+
+    J --> K[Site Activity Summary]
+
+    I --> L{Any Incident?}
+
+    L -- Yes --> M[Submit Incident Report]
+
+    L -- No --> N[Continue Patrol]
+
+    M --> K
+
+    N --> O[Clock Out]
+
+    O --> P[Generate Daily Report]

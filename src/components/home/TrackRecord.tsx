@@ -8,7 +8,7 @@ const cards = [
     title: 'Home',
     href: '/',
     topLabel: 'PROJECTS DELIVERED',
-    topValue: '100+',
+    topValue: '52',
     dots: { cols: 8, rows: 5, color: 'bg-blue-500' }
   },
   {
@@ -51,7 +51,7 @@ export function TrackRecord() {
           Our Track Record
         </span>
         <h2 className="text-4xl md:text-6xl font-light tracking-tight leading-[1.1]">
-          100+ projects delivered.<br />
+          52 projects delivered.<br />
           Ready to build yours?
         </h2>
       </div>

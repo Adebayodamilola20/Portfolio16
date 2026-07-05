@@ -119,7 +119,7 @@ export default function AboutPage() {
           <motion.div variants={dropDownItem} className="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden mb-12 relative">
             <img 
               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80" 
-              alt="Software Engineering Workspace" 
+              alt="Laptop displaying program code in a software development workspace"
               className="w-full h-full object-cover" 
             />
             <div className="absolute inset-0 bg-[#0E0E13]/20 mix-blend-overlay" />
@@ -129,7 +129,7 @@ export default function AboutPage() {
           <motion.div variants={dropDownItem} className="flex flex-wrap items-center gap-10 md:gap-16 text-[13px] md:text-sm text-gray-400 font-medium">
             <div><span className="text-[#0080FF] font-bold text-base md:text-lg mr-1.5"><Counter from={1} to={4} delay={0.6} /></span> years of experience</div>
             <div className="h-4 w-px bg-white/10 hidden md:block" />
-            <div><span className="text-[#0080FF] font-bold text-base md:text-lg mr-1.5"><Counter from={1} to={7} delay={0.7} /></span> projects delivered</div>
+            <div><span className="text-[#0080FF] font-bold text-base md:text-lg mr-1.5"><Counter from={1} to={52} delay={0.7} /></span> projects delivered</div>
             <div className="flex-1" />
             <div className="hidden md:block"><span className="text-[#0080FF] font-bold text-base md:text-lg mr-1.5"><Counter from={50} to={95} delay={0.8} /></span> Lighthouse scores</div>
           </motion.div>

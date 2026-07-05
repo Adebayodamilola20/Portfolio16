@@ -1,7 +1,6 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { PageTransition } from '@/components/PageTransition';
-import Script from 'next/script';
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -11,41 +10,33 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Adebayo Stephen',
-  jobTitle: ['Software Engineer', 'AI Developer'],
   url: siteUrl,
-  sameAs: [
-    'https://github.com/adebayostephen',
-    'https://linkedin.com/in/adebayostephen',
-    'https://x.com/adebayostephen',
-    siteUrl
-  ],
+  jobTitle: 'AI Backend & Full Stack Developer',
+  brand: {
+    '@type': 'Brand',
+    name: 'Stephen Tech Studio'
+  },
   knowsAbout: [
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Next.js',
-    'Node.js',
-    'Python',
-    'Machine Learning',
-    'AI Development',
+    'AI agents',
+    'FastAPI',
+    'LangChain',
+    'Flutter',
     'Full Stack Development',
-    'Mobile App Development',
-    'Cloud Computing',
-    'DevOps'
+    'Firebase'
   ],
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'Self-taught Developer'
-  }
+  sameAs: [
+    'https://github.com/Adebayodamilola20',
+    'https://www.linkedin.com/in/stephen-adebayo-68126a340'
+  ]
 };
 
 export const metadata: Metadata = {
   title: {
-    default: 'Adebayo Stephen | Software Engineer & AI Developer',
-    template: '%s | Adebayo Stephen'
+    default: 'Adebayo Stephen | Stephen Tech Studio — AI Backend & Full Stack Developer',
+    template: '%s | Stephen Tech Studio'
   },
   description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps. Available for freelance and full-time opportunities.',
-  keywords: ['Adebayo Stephen', 'Software Engineer', 'AI Developer', 'Full Stack Developer', 'React', 'Next.js', 'TypeScript', 'Python', 'Machine Learning', 'Freelance Developer'],
+  keywords: ['Stephen Tech Studio', 'Adebayo Stephen', 'Software Engineer', 'AI Developer', 'AI Backend Developer', 'Full Stack Developer', 'React', 'Next.js', 'TypeScript', 'Python', 'Machine Learning', 'Freelance Developer'],
   authors: [{ name: 'Adebayo Stephen', url: siteUrl }],
   creator: 'Adebayo Stephen',
   publisher: 'Adebayo Stephen',
@@ -55,9 +46,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(siteUrl),
-  alternates: {
-    canonical: siteUrl,
-  },
   verification: {
     google: 'JgjUJFeozkQoSSlRytyyeD3UpjIo256B3PpiAo35RG0',
   },
@@ -65,25 +53,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    siteName: 'Adebayo Stephen',
-    title: 'Adebayo Stephen | Software Engineer & AI Developer',
+    siteName: 'Stephen Tech Studio',
+    title: 'Adebayo Stephen | Stephen Tech Studio — AI Backend & Full Stack Developer',
     description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Adebayo Stephen - Software Engineer & AI Developer',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@adebayostephen',
     creator: '@adebayostephen',
-    title: 'Adebayo Stephen | Software Engineer & AI Developer',
+    title: 'Adebayo Stephen | Stephen Tech Studio — AI Backend & Full Stack Developer',
     description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
-    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -101,14 +80,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <Script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-          strategy="lazyOnload"
-        />
-      </head>
       <body className="antialiased bg-[#050505]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema).replace(/</g, '\\u003c'),
+          }}
+        />
         <Navigation />
         <PageTransition>
           {children}

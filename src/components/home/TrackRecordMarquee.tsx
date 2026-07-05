@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 export function TrackRecordMarquee() {
-  const text = "100+ PROJECTS DELIVERED. READY TO BUILD YOURS? ";
+  const text = "52 PROJECTS DELIVERED. READY TO BUILD YOURS? ";
   
   return (
     <section className="py-20 md:py-32 bg-[#050505] overflow-hidden">
