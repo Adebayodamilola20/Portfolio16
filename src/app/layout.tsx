@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@adebayostephen',
-    creator: '@adebayostephen',
+    site: '@DamilolaAd80758',
+    creator: '@DamilolaAd80758',
     title: 'Adebayo Stephen | Stephen Tech Studio — AI Backend & Full Stack Developer',
     description: 'Software Engineer and AI Developer specializing in building scalable web applications, AI systems, and mobile apps.',
   },
