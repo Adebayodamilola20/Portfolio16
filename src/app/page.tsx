@@ -6,6 +6,7 @@ import { TechStackMarquee } from "@/components/home/TechStackMarquee";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { EnterpriseReady } from "@/components/home/EnterpriseReady";
 import { TrackRecord } from "@/components/home/TrackRecord";
+import { CommunityMarquee } from "@/components/home/CommunityMarquee";
 import { WorkWithUs } from "@/components/home/WorkWithUs";
 import { CTASection } from "@/components/home/CTASection";
 import { motion } from "framer-motion";
@@ -40,6 +41,7 @@ export default function Home() {
       <FadeIn><WhyChooseUs /></FadeIn>
       <FadeIn><EnterpriseReady /></FadeIn>
       <FadeIn><TrackRecord /></FadeIn>
+      <FadeIn><CommunityMarquee /></FadeIn>
       <FadeIn><WorkWithUs /></FadeIn>
       <FadeIn><CTASection /></FadeIn>
     </div>
