@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, LayoutGrid } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import { useHasMounted } from '@/lib/hooks';
@@ -72,7 +72,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-[13px] md:text-base text-gray-400 mb-8 md:mb-10 max-w-xl leading-relaxed font-medium mx-auto px-4 md:px-0"
+          className="text-[13px] md:text-base text-gray-400 mb-6 md:mb-10 max-w-xl leading-relaxed font-medium mx-auto px-4 md:px-0"
         >
           I design and develop powerful websites, apps, and platforms<br className="hidden md:block" /> for businesses that need more than off-the-shelf solutions.
         </motion.p>
@@ -81,10 +81,10 @@ export function Hero() {
            initial={{ opacity: 0 }}
            animate={{ opacity: 1 }}
            transition={{ duration: 1, delay: 0.4 }}
-           className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-10 sm:px-0"
+           className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-10 sm:px-0"
         >
           <Link href="/schedule" className="w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-10 py-5 bg-[#F5F6EE] text-black rounded-full font-bold tracking-widest uppercase text-[13px] transition-all hover:scale-105 active:scale-95 flex items-center justify-center min-h-[64px] overflow-hidden">
+            <button className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#F5F6EE] text-black rounded-full font-bold tracking-widest uppercase text-[12px] sm:text-[13px] transition-all hover:scale-105 active:scale-95 flex items-center justify-center min-h-[56px] sm:min-h-[64px] overflow-hidden">
               <div className="relative h-5 flex items-center justify-center w-full min-w-[200px]">
                 <AnimatePresence initial={false}>
                   {isProject ? (
@@ -124,8 +124,14 @@ export function Hero() {
               </div>
             </button>
           </Link>
+          <Link href="/portfolio" className="w-full sm:w-auto">
+            <button className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-transparent border border-[#3b82f6]/40 text-white rounded-full font-bold tracking-widest uppercase text-[12px] sm:text-[13px] transition-all hover:bg-[#3b82f6]/10 hover:border-[#3b82f6]/70 active:scale-95 flex items-center justify-center gap-3 min-h-[56px] sm:min-h-[64px] whitespace-nowrap">
+              <LayoutGrid className="w-4 h-4 text-[#3b82f6]" /> View My Work
+            </button>
+          </Link>
+
           <a href="/CV-7.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 text-white rounded-full font-bold tracking-widest uppercase text-[13px] transition-all hover:bg-white/5 active:scale-95 flex items-center justify-center gap-3 min-h-[64px]">
+            <button className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-transparent border border-white/20 text-white rounded-full font-bold tracking-widest uppercase text-[12px] sm:text-[13px] transition-all hover:bg-white/5 active:scale-95 flex items-center justify-center gap-3 min-h-[56px] sm:min-h-[64px] whitespace-nowrap">
               Download CV <Download className="w-4 h-4" />
             </button>
           </a>
